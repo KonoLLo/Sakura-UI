@@ -1,0 +1,976 @@
+
+
+
+
+
+
+#listContainer { margin-bottom: 64px; }
+
+#listContainer > div[id$="action"] {
+  border: 1px solid var(--dol-line-soft);
+  border-radius: var(--dol-r);
+  background-color: var(--dol-panel-2);
+  padding: 2px 8px 10px;
+  min-width: 0;
+}
+
+
+#listContainer .radioControl > span:first-child,
+#listContainer .columnRadioControl > span:first-child {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0 8px;
+  font-size: .78em;
+  font-weight: 600;
+  letter-spacing: .06em;
+  color: var(--dol-ink-faint);
+}
+#listContainer .radioControl > span:first-child::after,
+#listContainer .columnRadioControl > span:first-child::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--dol-line), transparent);
+}
+#listContainer .radioControl > span:first-child + br,
+#listContainer .columnRadioControl > span:first-child + br { display: none; }
+
+
+
+#listContainer .radioControl label,
+#listContainer .columnRadioControl label {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0 0 2px;
+  padding: 7px 10px;
+  border: 1px solid transparent;
+  border-radius: var(--dol-r);
+  background-color: rgba(255, 255, 255, .02);
+  cursor: pointer;
+  transition: background-color var(--dol-dur) var(--dol-ease),
+              border-color var(--dol-dur) var(--dol-ease),
+              color var(--dol-dur) var(--dol-ease);
+}
+
+#listContainer .radioControl label { display: flex; font-size: 0; }
+
+#listContainer .radioControl label > *,
+#listContainer .columnRadioControl label > * { font-size: .97rem; }
+
+#listContainer .radioControl label > span + span { margin-left: .26em; }
+#listContainer .radioControl label:hover,
+#listContainer .columnRadioControl label:hover {
+  background-color: var(--dol-panel-2);
+  border-color: var(--dol-line-ctl);
+}
+
+#listContainer .radioControl label:has(input:checked),
+#listContainer .columnRadioControl label:has(input:checked) {
+  background-color: color-mix(in oklab, var(--dol-accent) 10%, transparent);
+  border-color: transparent;
+  box-shadow: inset 3px 0 0 var(--dol-accent),
+              inset 0 0 0 1px color-mix(in oklab, var(--dol-accent) 26%, transparent);
+}
+#listContainer input.macro-radiobutton {
+  width: 14px;
+  height: 14px;
+  margin: 0 .5em 0 0;
+  flex: none;
+}
+#listContainer .radioControl select,
+#listContainer .columnRadioControl select {
+  font-size: .93rem;
+  margin-left: .4em;
+  max-width: 220px;
+}
+
+#listContainer label > * { min-width: 0; }
+#listContainer label > span { flex: 0 1 auto; }
+#listContainer label > select { flex: 0 1 auto; min-width: 0; max-width: 100%; }
+
+
+#listContainer label > span:last-child:not(input + span) {
+  font-size: .74rem;
+  font-weight: 600;
+  letter-spacing: .02em;
+  padding: .16em .55em;
+  margin-left: auto;
+  border-radius: var(--dol-r-pill);
+  white-space: nowrap;
+  background-color: color-mix(in oklab, currentColor 16%, transparent);
+  box-shadow: inset 0 0 0 1px color-mix(in oklab, currentColor 42%, transparent);
+}
+
+
+#listContainer .listsControl,
+#listContainer .limitedListsControl {
+  border-color: var(--dol-line);
+  border-radius: var(--dol-r);
+  background-color: var(--dol-panel-2);
+  padding: 6px;
+}
+
+
+
+
+
+#ui-overlay { background-color: rgba(0, 0, 0, .72); }
+#ui-overlay.open { opacity: 1; }
+#ui-dialog {
+  border: 1px solid var(--dol-line);
+  border-radius: var(--dol-r-lg);
+  
+  background-color: var(--900);
+  background-image: linear-gradient(var(--dol-panel), var(--dol-panel));
+  box-shadow: var(--dol-elev-3);
+  overflow: hidden;
+}
+#ui-dialog-titlebar {
+  padding: var(--dol-sp-3) var(--dol-sp-4);
+  border-bottom: 1px solid var(--dol-line);
+  background-color: var(--dol-panel-2);
+  font-weight: 650;
+  letter-spacing: .02em;
+}
+#ui-dialog-body {
+  padding: var(--dol-sp-4);
+  scrollbar-width: thin;
+  scrollbar-color: var(--dol-line) transparent;
+}
+#ui-dialog-body::-webkit-scrollbar { width: 9px; }
+#ui-dialog-body::-webkit-scrollbar-thumb { background: var(--dol-line); border-radius: var(--dol-r-pill); }
+
+#ui-dialog-close {
+  color: var(--dol-ink-dim);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--dol-r-sm);
+  padding: .2em .5em;
+  margin: .3em .4em 0 0;
+}
+#ui-dialog-close:hover {
+  color: var(--dol-ink);
+  border-color: var(--dol-danger);
+}
+
+
+#ui-dialog-body.settings [id|=setting-label] { color: var(--dol-ink); }
+#ui-dialog-body.settings p[id|=header-desc],
+#ui-dialog-body.settings p[id|=setting-desc] { color: var(--dol-ink-faint); }
+#ui-dialog-body.settings div[id|=header-body]:not(:first-child) { border-top-color: var(--dol-line); }
+#ui-dialog-body.settings button[id|=setting-control] {
+  color: var(--dol-ink);
+  background-color: var(--dol-panel-2);
+  border: 1px solid var(--dol-line-ctl);
+  border-radius: var(--dol-r-sm);
+  padding: .4em .8em;
+  transition: var(--dol-tr-hl);
+}
+
+#ui-dialog-body.settings button[id|=setting-control]:hover:not([disabled]) {
+  background-color: var(--dol-panel-3);
+  border-color: var(--dol-accent);
+}
+
+
+.customOverlayContainer {
+  left: var(--dol-barW);
+  right: auto;
+  width: calc(100% - var(--dol-barW));
+}
+
+@media (max-width: 870px) {
+  .customOverlay { left: 10px; }
+}
+
+.customOverlay {
+  border: 1px solid var(--dol-line);
+  border-radius: var(--dol-r);
+  background-color: var(--900);
+  background-image: linear-gradient(180deg, var(--dol-panel-2), var(--dol-panel) 22%, var(--dol-panel));
+  box-shadow: var(--dol-elev-2), var(--dol-inset);
+  overflow: hidden;
+}
+
+#customOverlayTitle {
+  align-items: flex-end;
+  padding: 2px 44px 0 6px;
+  border-bottom: 1px solid var(--dol-line);
+  background-color: var(--dol-panel-2);
+}
+
+
+.tab {
+  border: 0;
+  border-radius: 0;
+  background-color: transparent;
+}
+.tab > * {
+  box-sizing: border-box;
+  padding: 9px 16px;
+  min-width: 0;
+  width: auto;
+  font: inherit;
+  font-size: .9rem;
+  text-align: center;
+  color: var(--dol-ink-faint);
+  background-color: transparent;
+  border: 0;
+  border-right: 1px solid var(--dol-line-soft);
+  border-radius: var(--dol-r-sm) var(--dol-r-sm) 0 0;
+  cursor: pointer;
+  position: relative;
+  top: 1px;
+  white-space: nowrap;
+  transition: color var(--dol-dur) var(--dol-ease),
+              background-color var(--dol-dur) var(--dol-ease);
+}
+.tab > *:last-child { border-right: 0; }
+.tab > *:hover { color: var(--dol-ink-dim); background-color: var(--dol-panel-3); }
+
+.tab-selected,
+.tab > .tab-selected {
+  color: var(--dol-ink);
+  font-weight: 600;
+  background-color: var(--dol-panel);
+  border-bottom: 1px solid var(--dol-panel);
+  cursor: default;
+}
+.tab > .tab-selected::before {
+  content: "";
+  position: absolute;
+  left: 2px; right: 2px; top: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--dol-accent);
+  
+}
+#overlayTabs {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+#overlayTabs > *:not(.colourCodes) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 1 auto;
+  min-width: 0;
+  width: auto;
+}
+
+#overlayTabs > .colourCodes {
+  flex: 0 0 auto;
+  width: auto;
+  min-width: 0;
+  margin-left: auto;
+  align-self: center;
+  top: 0;
+  font-size: .74em;
+  color: var(--dol-ink-faint);
+  background-color: var(--dol-panel-2);
+  border: 1px solid var(--dol-line);
+  border-radius: var(--dol-r-pill);
+  padding: 2px 9px;
+  cursor: default;
+}
+#overlayTabs > .colourCodes:hover { background-color: var(--dol-panel-2); }
+#overlayTabs > .colourCodes > span { border: 0; }
+
+
+#overlayTabs {
+  padding: 10px 12px;
+  gap: 6px;
+  align-items: center;
+}
+
+#overlayTabs > *:not(.colourCodes) {
+  padding: 5px 15px;
+  top: 0;
+  border: 1px solid transparent;
+  border-right: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+  border-radius: var(--dol-r-pill);
+  color: var(--dol-ink-dim);
+  background-color: transparent;
+  
+  font-size: 13.5px;
+}
+#overlayTabs > *:hover:not(.colourCodes):not(.tab-selected) {
+  color: var(--dol-ink);
+  background-color: var(--dol-panel-3);
+}
+
+#overlayTabs > .tab-selected:not(.colourCodes) {
+  color: var(--dol-accent-hi);
+  border-color: var(--dol-accent);
+  background-color: color-mix(in oklab, var(--dol-accent) 12%, transparent);
+}
+#overlayTabs > .tab-selected::before { display: none; }
+
+.customOverlay:has(> #customOverlayContent) {
+  display: flex;
+  flex-direction: column;
+}
+.customOverlay:has(> #customOverlayContent) > #customOverlayContent#customOverlayContent {
+  flex: 1 1 auto;
+  min-height: 0;
+  
+  height: auto !important;
+}
+
+.tab > .colourCodes {
+  margin-left: auto;
+  align-self: center;
+  top: 0;
+  padding: 2px 9px;
+  font-size: .74em;
+  color: var(--dol-ink-faint);
+  background-color: var(--dol-panel-2);
+  border: 1px solid var(--dol-line);
+  border-radius: var(--dol-r-pill);
+  cursor: help;
+}
+.tab > .colourCodes > span { border: 0; }
+
+
+.customOverlay .customOverlayClose {
+  width: 26px;
+  height: 26px;
+  right: 9px;
+  top: 7px;
+  opacity: 1;
+  border: 1px solid var(--dol-line-ctl);
+  border-radius: 50%;
+  background-color: var(--dol-panel-2);
+  transition: background-color var(--dol-dur) var(--dol-ease),
+              border-color var(--dol-dur) var(--dol-ease),
+              transform var(--dol-dur) var(--dol-ease);
+}
+.customOverlay .customOverlayClose:hover {
+  background-color: var(--dol-panel-3);
+  border-color: var(--dol-accent);
+  transform: rotate(90deg);
+}
+.customOverlay .customOverlayClose::before,
+.customOverlay .customOverlayClose::after {
+  top: 6px;
+  left: 12px;
+  height: 13px;
+  width: 1.5px;
+  background-color: var(--dol-ink-dim);
+}
+
+#customOverlayContent {
+  padding: 8px 10px 18px;
+  margin: 0 10px;
+  border: 0;
+  background-color: transparent;
+  scrollbar-width: thin;
+  scrollbar-color: var(--dol-line) transparent;
+  scrollbar-gutter: stable;
+}
+#customOverlayContent::-webkit-scrollbar { width: 10px; }
+#customOverlayContent::-webkit-scrollbar-track { background: transparent; }
+#customOverlayContent::-webkit-scrollbar-thumb {
+  background: var(--dol-line);
+  border: 3px solid transparent;
+  background-clip: content-box;
+  border-radius: var(--dol-r-pill);
+}
+#customOverlayContent::-webkit-scrollbar-thumb:hover {
+  background: var(--dol-ink-faint);
+  background-clip: content-box;
+}
+
+
+.settingsGrid { gap: 12px; margin: 12px 8px; }
+
+
+.settingsHeader,
+.settingsHeader.options {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  grid-column: 1 / -1;
+  margin: 10px 0 -4px;
+  padding: 0;
+  text-align: left;
+  font-size: .8em;
+  font-weight: 600;
+  letter-spacing: .06em;
+  color: var(--gold);
+  background-color: transparent;
+  background-image: none;
+  border: 0;
+  border-radius: 0;
+}
+.settingsHeader > span { color: inherit; font-weight: inherit; font-size: inherit; }
+.settingsHeader::before {
+  content: "";
+  flex: none;
+  width: 6px; height: 6px;
+  border-radius: 2px;
+  background: var(--gold);
+  
+}
+.settingsHeader::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, color-mix(in oklab, var(--gold) 34%, var(--dol-line)), transparent);
+}
+
+
+.settingsToggleItem,
+.settingsToggleItemWide,
+.settingsToggleItemTall {
+  position: relative;
+  box-sizing: border-box;
+  min-height: var(--dol-tap);
+  padding: 10px 12px;
+  border: 1px solid var(--dol-line-soft);
+  border-radius: var(--dol-r);
+  background-color: var(--dol-panel-2);
+  background-image: linear-gradient(180deg, var(--dol-panel-2), var(--dol-panel));
+  box-shadow: var(--dol-inset);
+  transition: border-color var(--dol-dur) var(--dol-ease),
+              background-color var(--dol-dur) var(--dol-ease),
+              box-shadow var(--dol-dur) var(--dol-ease);
+}
+.settingsToggleItem      { height: 100%; }
+.settingsToggleItemWide  { grid-column: 1 / -1; }
+.settingsToggleIndent    { padding: 5px 0 0 15px; grid-column: 1 / -1; }
+.settingsToggleItem:hover,
+.settingsToggleItemWide:hover,
+.settingsToggleItemTall:hover {
+  border-color: var(--dol-line-ctl);
+  background-image: linear-gradient(180deg, var(--dol-panel-3), var(--dol-panel-2));
+}
+
+.settingsToggleItem:has(input[type=checkbox]:checked),
+.settingsToggleItemWide:has(input[type=checkbox]:checked),
+.settingsToggleItemTall:has(input[type=checkbox]:checked) {
+  border-color: color-mix(in oklab, var(--dol-accent) 32%, var(--dol-line-soft));
+  background-image: linear-gradient(180deg, color-mix(in oklab, var(--dol-accent) 8%, var(--dol-panel-2)), var(--dol-panel));
+  box-shadow: inset 3px 0 0 var(--dol-accent), var(--dol-inset);
+}
+
+
+.settingsToggleItem:has(input:disabled),
+.settingsToggleItemWide:has(input:disabled),
+.settingsToggleItemTall:has(input:disabled) {
+  color: var(--dol-ink-dim);
+  border-color: var(--dol-line-soft);
+  background-image: linear-gradient(180deg, var(--dol-panel-2), var(--dol-panel));
+  box-shadow: var(--dol-inset);
+}
+.settingsToggleItem:has(input:disabled) > .gold,
+.settingsToggleItemWide:has(input:disabled) > .gold,
+.settingsToggleItemTall:has(input:disabled) > .gold { color: var(--dol-ink-dim); }
+
+.settingsToggleItem:has(input:disabled):hover,
+.settingsToggleItemWide:has(input:disabled):hover,
+.settingsToggleItemTall:has(input:disabled):hover {
+  border-color: var(--dol-line-soft);
+  background-image: linear-gradient(180deg, var(--dol-panel-2), var(--dol-panel));
+}
+
+.settingsToggleItem > .gold:first-child,
+.settingsToggleItemWide > .gold:first-child,
+.settingsToggleItemTall > .gold:first-child {
+  display: inline-block;
+  margin: 0 .35em .15em 0;
+  font-size: .86em;
+  font-weight: 600;
+  letter-spacing: .02em;
+  color: var(--gold);
+}
+
+.settingsToggleItem label,
+.settingsToggleItemWide label,
+.settingsToggleItemTall label {
+  cursor: pointer;
+  border-radius: var(--dol-r-sm);
+  padding: 1px 5px;
+  margin: 0 -1px;
+  transition: background-color var(--dol-dur) var(--dol-ease),
+              box-shadow var(--dol-dur) var(--dol-ease);
+}
+.settingsToggleItem label:hover,
+.settingsToggleItemWide label:hover,
+.settingsToggleItemTall label:hover { background-color: rgba(255, 255, 255, .05); }
+
+.settingsToggleItem label:has(input[type=radio]:checked),
+.settingsToggleItemWide label:has(input[type=radio]:checked),
+.settingsToggleItemTall label:has(input[type=radio]:checked) {
+  color: var(--dol-ink);
+  background-color: color-mix(in oklab, var(--dol-accent) 13%, transparent);
+  box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--dol-accent) 22%, transparent);
+}
+
+.settingsGrid > .description {
+  align-self: center;
+  padding-left: 11px;
+  border-left: 2px solid var(--dol-line-soft);
+}
+
+.macro-numberslider { display: inline-flex; align-items: center; gap: 8px; }
+.macro-numberslider .small-description {
+  color: var(--dol-ink-dim);
+  font-variant-numeric: tabular-nums;
+}
+
+#customOverlayContent hr {
+  border: 0;
+  height: 1px;
+  margin: 18px 10px;
+  background: linear-gradient(90deg, transparent, var(--dol-line) 14%, var(--dol-line) 86%, transparent);
+}
+
+
+input[type=text], input[type=number], input[type=password], select, textarea {
+  color: var(--dol-ink);
+  background-color: var(--dol-panel-3);
+  border: 1px solid var(--dol-line-ctl);
+  border-radius: var(--dol-r-sm);
+  padding: .4em .55em;
+  min-height: 2.1em;
+  
+  box-sizing: border-box;
+  max-width: 100%;
+  transition: border-color var(--dol-dur) var(--dol-ease), box-shadow var(--dol-dur) var(--dol-ease);
+}
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: var(--dol-chev);
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 11px;
+  padding-right: 26px;
+  max-width: 100%;
+}
+select:hover { border-color: color-mix(in oklab, var(--dol-accent) 45%, var(--dol-line-ctl)); }
+input:focus-visible, select:focus-visible, textarea:focus-visible,
+a:focus-visible, button:focus-visible {
+  outline: none;
+  border-color: var(--dol-accent);
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--dol-accent) 22%, transparent);
+}
+input[type=range] { accent-color: var(--dol-accent); }
+
+input[type=checkbox], input[type=radio] {
+  accent-color: var(--dol-accent);
+  width: 1em;
+  height: 1em;
+  vertical-align: -.15em;
+  margin-right: 9px;
+}
+
+
+button, .macro-button, .buttonlike, .closeButton {
+  color: var(--dol-ink);
+  font-size: 1em;
+  border: 1px solid var(--dol-line-ctl);
+  border-radius: var(--dol-r-sm);
+  background-color: var(--dol-panel-2);
+  padding: .5em .9em;
+  min-height: 2.2em;
+  cursor: pointer;
+  transition: background-color var(--dol-dur) var(--dol-ease),
+              border-color var(--dol-dur) var(--dol-ease),
+              box-shadow var(--dol-dur) var(--dol-ease);
+}
+
+button:hover:not([disabled]), .macro-button:hover:not([disabled]), .buttonlike:hover:not([disabled]), .closeButton:hover:not([disabled]) {
+  background-color: var(--dol-panel-3);
+  border-color: var(--dol-accent);
+  
+}
+button:active, .macro-button:active, .buttonlike:active { transform: translateY(1px); }
+
+button[disabled], .macro-button[disabled], .buttonlike[disabled] {
+  cursor: not-allowed;
+  border-color: var(--dol-line-soft);
+  box-shadow: none;
+}
+
+button[disabled]:hover, .macro-button[disabled]:hover, .buttonlike[disabled]:hover { border-color: var(--dol-line-soft); }
+button[disabled]:active, .macro-button[disabled]:active, .buttonlike[disabled]:active { transform: none; }
+
+
+#saves-list-container { border-color: var(--dol-line); }
+#ui-dialog-body .header { border-bottom: 1px solid var(--dol-line); }
+
+
+.dol-note {
+  grid-column: 1 / -1;
+  margin-top: -2px;
+  font-size: .8em;
+  color: var(--dol-ink-dim);
+}
+
+
+
+html:root .modhub-stat-card {
+  background-color: var(--dol-panel-2) !important;
+  border: 1px solid var(--dol-line) !important;
+  border-radius: var(--dol-r-sm) !important;
+}
+html:root .modhub-stat-num { color: var(--dol-ink) !important; }
+html:root .modhub-stat-label { color: var(--dol-ink-dim) !important; }
+
+html:root .modhub-item {
+  border-bottom: 1px solid var(--dol-line-soft) !important;
+  border-radius: var(--dol-r-xs);
+}
+html:root .modhub-item:hover { background-color: var(--dol-panel-2) !important; }
+html:root .modhub-item-title { color: var(--dol-ink) !important; }
+html:root .modhub-item-desc { color: var(--dol-ink-dim) !important; }
+html:root .modhub-item-info { color: var(--dol-ink-dim) !important; }
+html:root .modhub-status-tag {
+  background-color: var(--dol-panel-2) !important;
+  border: 1px solid var(--dol-line-ctl) !important;
+  color: var(--dol-ink-dim) !important;
+  border-radius: var(--dol-r-xs) !important;
+}
+
+
+html:root .modhub-btn-group button {
+  background-color: var(--dol-panel-2) !important;
+  border: 1px solid var(--dol-line-ctl) !important;
+  color: var(--dol-ink) !important;
+  border-radius: var(--dol-r-sm) !important;
+  box-shadow: none !important;
+  min-height: 28px !important;
+  padding: 0 9px !important;
+  font-size: 12.5px !important;
+}
+html:root .modhub-btn-group button:hover:not([disabled]) {
+  background-color: var(--dol-panel-3) !important;
+  border-color: var(--dol-accent) !important;
+  color: var(--dol-ink) !important;
+}
+
+html:root .modhub-btn-group button.btn-enable { color: var(--dol-accent) !important; }
+html:root .modhub-btn-group button.btn-enable:hover:not([disabled]) { color: var(--dol-accent) !important; }
+
+html:root .modhub-btn-group button.btn-delete {
+  background-color: transparent !important;
+  border-color: var(--dol-danger) !important;
+  color: var(--dol-danger) !important;
+}
+html:root .modhub-btn-group button.btn-delete span.red { color: inherit !important; }
+html:root .modhub-btn-group button.btn-delete:hover:not([disabled]) {
+  background-color: var(--dol-panel-3) !important;
+  border-color: var(--dol-danger) !important;
+  color: var(--dol-danger) !important;
+}
+
+
+html:root #overlayTabs.modhub-modloader-tabs > button {
+  background-color: transparent !important;
+  border: 1px solid transparent !important;
+  border-bottom: 2px solid transparent !important;
+  color: var(--dol-ink-dim) !important;
+  border-radius: var(--dol-r-sm) var(--dol-r-sm) 0 0 !important;
+  min-height: 34px;
+}
+html:root #overlayTabs.modhub-modloader-tabs > button:hover:not([disabled]) {
+  background-color: var(--dol-panel-2) !important;
+  color: var(--dol-ink) !important;
+}
+html:root #overlayTabs.modhub-modloader-tabs > button.modhub-core-tab {
+  background-color: var(--dol-panel-2) !important;
+  border-bottom-color: var(--dol-accent) !important;
+  color: var(--dol-ink) !important;
+}
+
+
+html:root .modhub-update-banner {
+  background: var(--dol-panel-2) !important;
+  border: 1px solid var(--dol-line) !important;
+  border-left: 3px solid var(--dol-accent) !important;
+  border-radius: var(--dol-r-sm) !important;
+  color: var(--dol-ink) !important;
+}
+html:root .modhub-update-banner-title { color: var(--dol-ink) !important; }
+html:root .modhub-update-banner-sub { color: var(--dol-ink-dim) !important; }
+
+
+html:root .modhub-tab-badge {
+  background-color: var(--dol-accent) !important;
+  color: var(--dol-on-fill) !important;
+  border-radius: 999px !important;
+}
+
+
+html:root .modhub-manager-controls button,
+html:root .modhub-manager-controls .buttonlike {
+  min-height: 28px;
+  font-size: 12.5px;
+}
+
+
+
+
+html:root #customOverlay:has(.modhub-container) button,
+html:root #customOverlay:has(.modhub-container) .macro-button,
+html:root #customOverlay:has(.modhub-container) .buttonlike {
+  background-color: var(--dol-panel-2) !important;
+  background-image: none !important;
+  border: 1px solid var(--dol-line-ctl) !important;
+  border-radius: var(--dol-r-sm) !important;
+  color: var(--dol-ink) !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+html:root #customOverlay:has(.modhub-container) button:hover:not([disabled]),
+html:root #customOverlay:has(.modhub-container) .macro-button:hover:not([disabled]),
+html:root #customOverlay:has(.modhub-container) .buttonlike:hover:not([disabled]) {
+  background-color: var(--dol-panel-3) !important;
+  border-color: var(--dol-accent) !important;
+  color: var(--dol-ink) !important;
+}
+
+html:root #customOverlay:has(.modhub-container) button.tab-selected {
+  background-color: var(--dol-panel-2) !important;
+  border-bottom: 2px solid var(--dol-accent) !important;
+  color: var(--dol-ink) !important;
+}
+html:root #customOverlay:has(.modhub-container) button.tab-selected:hover:not([disabled]) {
+  background-color: var(--dol-panel-3) !important;
+  color: var(--dol-ink) !important;
+}
+
+html:root #customOverlay:has(.modhub-container) button.btn-delete,
+html:root #customOverlay:has(.modhub-container) button[danger],
+html:root #customOverlay:has(.modhub-container) .modhub-btn-danger {
+  background-color: transparent !important;
+  border-color: var(--dol-danger) !important;
+  color: var(--dol-danger) !important;
+}
+
+html:root #customOverlay:has(.modhub-container) .modhub-update-banner button {
+  background-color: var(--dol-panel-2) !important;
+  border-color: var(--dol-line-ctl) !important;
+  color: var(--dol-ink) !important;
+}
+
+html:root #customOverlay:has(.modhub-container) .modhub-list-toolbar,
+html:root #customOverlay:has(.modhub-container) .modhub-group-header {
+  background-color: var(--dol-panel-2) !important;
+  background-image: none !important;
+  border: 1px solid var(--dol-line-soft) !important;
+  border-radius: var(--dol-r-sm) !important;
+  color: var(--dol-ink) !important;
+}
+html:root #customOverlay:has(.modhub-container) .modhub-group-header span.gold {
+  color: var(--dol-ink-dim) !important;
+}
+
+
+html:root #customOverlay:has(.modhub-container) #overlayTabs {
+  background: transparent !important;
+  border-bottom: 1px solid var(--dol-line) !important;
+}
+html:root #customOverlay:has(.modhub-container) #overlayTabs > button.modhub-core-tab {
+  background: transparent !important;
+  border-style: solid !important;
+  border-width: 0 0 2px 0 !important;
+  border-color: transparent !important;
+  border-radius: 0 !important;
+  color: var(--dol-ink-dim) !important;
+  font-weight: 500 !important;
+  min-height: 42px;
+  padding: 0 18px !important;
+  box-shadow: none !important;
+  letter-spacing: .02em;
+  text-shadow: none !important;
+}
+html:root #customOverlay:has(.modhub-container) #overlayTabs > button.modhub-core-tab:hover:not([disabled]) {
+  background: var(--dol-panel-2) !important;
+  border-bottom-color: var(--dol-line-ctl) !important;
+  color: var(--dol-ink) !important;
+}
+html:root #customOverlay:has(.modhub-container) #overlayTabs > button.modhub-core-tab.tab-selected {
+  background: transparent !important;
+  border-bottom-color: var(--dol-accent) !important;
+  color: var(--dol-ink) !important;
+  font-weight: 700 !important;
+}
+html:root #customOverlay:has(.modhub-container) .customOverlayClose {
+  background: var(--dol-panel-2) !important;
+  border: 1px solid var(--dol-line-ctl) !important;
+  border-radius: var(--dol-r-sm) !important;
+  color: var(--dol-ink) !important;
+  box-shadow: none !important;
+}
+
+
+@media (max-width: 720px) {
+  html:root #customOverlay:has(.modhub-container) {
+    left: 0 !important;
+    right: 0 !important;
+    margin-left: 0 !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    box-sizing: border-box;
+  }
+  html:root #customOverlay:has(.modhub-container) #overlayTabs > button.modhub-core-tab {
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    flex: 0 0 auto !important;
+    padding: 0 12px !important;
+  }
+  html:root #customOverlay:has(.modhub-container) #customOverlayContent {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+  }
+}
+html:root #customOverlay:has(.modhub-container) #overlayTabs {
+  background: transparent !important;
+  border: 0 !important;
+  border-bottom: 1px solid var(--dol-line) !important;
+}
+html:root #customOverlay:has(.modhub-container) #overlayTabs > button.modhub-core-tab {
+  background: transparent !important;
+  border: 0 !important;
+  border-right: 1px solid var(--dol-line-soft) !important;
+  border-radius: var(--dol-r-sm) var(--dol-r-sm) 0 0 !important;
+  color: var(--dol-ink-faint) !important;
+  font-weight: 500 !important;
+  min-height: 42px;
+  padding: 0 16px !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  position: relative !important;
+  top: 1px;
+  letter-spacing: .02em;
+}
+html:root #customOverlay:has(.modhub-container) #overlayTabs > button.modhub-core-tab:last-child {
+  border-right: 0 !important;
+}
+html:root #customOverlay:has(.modhub-container) #overlayTabs > button.modhub-core-tab:hover:not([disabled]) {
+  background: var(--dol-panel-3) !important;
+  border-bottom-color: transparent !important;
+  color: var(--dol-ink-dim) !important;
+}
+html:root #customOverlay:has(.modhub-container) #overlayTabs > button.modhub-core-tab.tab-selected {
+  background: var(--dol-panel) !important;
+  border-bottom: 1px solid var(--dol-panel) !important;
+  color: var(--dol-ink) !important;
+  font-weight: 600 !important;
+}
+html:root #customOverlay:has(.modhub-container) #overlayTabs > button.modhub-core-tab.tab-selected::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  right: 2px;
+  top: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--dol-accent);
+}
+html:root #customOverlay:has(.modhub-container) .customOverlayClose {
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: var(--dol-r-sm) !important;
+  color: var(--dol-ink-dim) !important;
+  box-shadow: none !important;
+}
+html:root #customOverlay:has(.modhub-container) .customOverlayClose:hover:not([disabled]) {
+  background: var(--dol-panel-2) !important;
+  color: var(--dol-ink) !important;
+}
+
+
+html:root #customOverlay:has(.modhub-container) #customOverlayTitle {
+  border: 0 !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+
+
+html:root #customOverlay:has(.modhub-container) .modhub-manager-overview,
+html:root #customOverlay:has(.modhub-container) .modhub-manager-controls,
+html:root #customOverlay:has(.modhub-container) .modhub-list-toolbar,
+html:root #customOverlay:has(.modhub-container) #modHubEnvInfo {
+  background-color: transparent !important;
+  background-image: none !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+
+html:root #modHubConfirmOverlay .modhub-modal-dialog {
+  background-color: var(--dol-panel) !important;
+  color: var(--dol-ink) !important;
+  border: 1px solid var(--dol-line) !important;
+  border-radius: var(--dol-r) !important;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, .18) !important;
+}
+html:root #modHubConfirmOverlay .modhub-modal-header,
+html:root #modHubConfirmOverlay .modhub-modal-footer {
+  background-color: transparent !important;
+  border-color: var(--dol-line-soft) !important;
+}
+html:root #modHubConfirmOverlay .modhub-modal-title,
+html:root #modHubConfirmOverlay .gold {
+  color: var(--dol-ink) !important;
+}
+html:root #modHubConfirmOverlay .red {
+  color: var(--dol-danger) !important;
+}
+html:root #modHubConfirmOverlay .modhub-modal-message {
+  color: var(--dol-ink-dim) !important;
+}
+html:root #modHubConfirmOverlay .modhub-modal-close {
+  color: var(--dol-ink-dim) !important;
+  background: transparent !important;
+  border: 0 !important;
+}
+html:root #modHubConfirmOverlay .modhub-modal-btn-confirm {
+  background-color: var(--dol-accent) !important;
+  border: 1px solid var(--dol-accent) !important;
+  color: var(--dol-on-fill) !important;
+  border-radius: var(--dol-r-sm) !important;
+  box-shadow: none !important;
+}
+html:root #modHubConfirmOverlay .modhub-modal-btn-cancel {
+  background-color: transparent !important;
+  border: 1px solid var(--dol-line-ctl) !important;
+  color: var(--dol-ink) !important;
+  border-radius: var(--dol-r-sm) !important;
+  box-shadow: none !important;
+}
+
+
+html:root #customOverlay .customOverlayClose {
+  background-color: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  border-radius: var(--dol-r-sm) !important;
+  color: var(--dol-ink-dim) !important;
+  box-shadow: none !important;
+}
+html:root #customOverlay .customOverlayClose:hover:not([disabled]) {
+  background-color: var(--dol-panel-2) !important;
+  color: var(--dol-ink) !important;
+}
+
+
+html:root #customOverlay:not(:has(.modhub-container)) .customOverlayClose {
+  margin-top: 10px !important;
+}

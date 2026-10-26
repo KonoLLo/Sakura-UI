@@ -1,0 +1,543 @@
+
+
+
+
+
+html {
+  
+  --dol-ink:        var(--000);            
+  --dol-ink-dim:    var(--200);            
+  --dol-ink-faint:  var(--200);            
+  --dol-page:       var(--900);            
+  --dol-panel:      var(--850);            
+  --dol-panel-2:    var(--800);            
+  --dol-panel-3:    var(--750);            
+  --dol-line:       var(--700);            
+  --dol-line-soft:  var(--750);            
+  
+  --dol-line-ctl:   var(--dol-line);
+  --dol-accent:     var(--link);           
+  --dol-accent-hi:  var(--link-hover);
+  --dol-danger:     var(--danger);
+  
+  --dol-on-fill:    var(--850);
+  
+  --dol-pill: 9%;
+
+  
+  --dol-r-xs: 4px;
+  --dol-r-sm: 6px;
+  --dol-r:    9px;
+  --dol-r-lg: 14px;
+  --dol-r-pill: 999px;
+
+  
+  --dol-sp-1: .25em;
+  --dol-sp-2: .5em;
+  --dol-sp-3: .85em;
+  --dol-sp-4: 1.25em;
+  --dol-sp-5: 1.8em;
+
+  
+  
+  --dol-barW: 280px;         
+  --dol-storyML: 20em;       
+  --dol-storyML-stowed: 4.5em;
+  
+  --dol-fixedL: 320px;
+  --dol-fixedR: 32px;
+  
+  --dol-cbtH: 39px;
+  --dol-cbtH-open: 54px;   
+  --dol-buyH: 52px;    
+  --dol-buyHn: 120px;  
+  --dol-cartH: 170px;  
+  --dol-nextH: 43px;   
+
+  --dol-meterH: 8px;         
+  --dol-rMeterH: 7px;        
+  
+  --dol-capMeterH: 5px;
+  --dol-tap: 44px;           
+
+  
+  --dol-elev-1: 0 1px 2px rgba(0,0,0,.45);
+  --dol-elev-2: 0 2px 6px rgba(0,0,0,.40), 0 12px 28px rgba(0,0,0,.32);
+  --dol-elev-3: 0 8px 20px rgba(0,0,0,.50), 0 30px 60px rgba(0,0,0,.38);
+  --dol-inset:  inset 0 1px 0 rgba(255,255,255,.045);
+  
+
+  
+  --dol-dur: .18s;
+  --dol-dur-slow: .34s;
+  --dol-ease: cubic-bezier(.2, .7, .3, 1);
+  
+  --dol-tr-hl: background-color var(--dol-dur) var(--dol-ease),
+               border-color var(--dol-dur) var(--dol-ease);
+
+  
+  
+
+  
+  
+  --dol-page-tint:
+    radial-gradient(120% 60% at 50% -10%, rgba(80, 130, 220, .055), transparent 60%),
+    radial-gradient(90% 50% at 100% 110%, rgba(120, 80, 200, .035), transparent 60%);
+
+  
+  
+  --dol-chev: url("data:image/svg+xml,%3Csvg xmlns='http%3A//www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2.5 4.5 6 8 9.5 4.5' fill='none' stroke='%238b93a3' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+
+  
+  --dol-font-ui: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --dol-font-body: inherit;  
+
+  
+  --dol-fs-body: 1em;
+  --dol-ls-body: .002em;
+  --dol-p-space: 1.05em;
+  --dol-ls-title: .01em;
+  --dol-fw-title: 650;
+  
+  --dol-fw-subtitle: 600;
+}
+
+
+
+html:not([data-theme]):not([data-theme]),
+html[data-theme="light"][data-theme],
+html[data-theme="dark"][data-theme],
+html[data-theme="system-default"][data-theme] {
+  
+  color-scheme: dark;
+  
+  --000: #e9edf5;
+  --100: #d2d9e5;
+  --150: #b0b9c9;
+  --200: #8f99ab;
+  --300: #717d91;
+  --400: #5a6577;
+  --500: #46505f;
+  --600: #353d4a;
+  --700: #282c35;
+  --750: #21252d;
+  --800: #1a1d24;
+  --850: #14161b;
+  --900: #0b0c0f;
+  
+  --dol-on-fill: var(--900);
+  --dol-read: color-mix(in oklab, var(--dol-panel) 82%, transparent);
+  --dol-read-warm: color-mix(in oklab, var(--dol-panel) 70%, transparent);
+
+  
+  --red:    #f0524f;
+  --pink:   #ec4f96;
+  --pink-secondary: #d884bb;
+  --purple: #9b7bff;
+  --purple-secondary: #b474cf;
+  --blue:   #4f8cff;
+  --blue-secondary: #5f9dc4;
+  --teal:   #26c8c8;
+  --green:  #41c463;
+  --green-secondary: #86b986;
+  --lime:   #5fd45c;
+  --orange: #e88b3a;
+  --brown:  #7a5140;
+  --black:  #9aa3b2;   
+  --yellow: #f0c419;
+  --gold:   #e6b74a;
+  --silver: #c7ced9;
+
+  
+  --lewd: #e04880;  --defiant: #d20000;  --meek: #c44b8b;
+  --brat: #b75d41;  --relaxed: #63719c;  --anxious: #973253;
+  --veteran: #956bb4; --methodical: #ce7993; --scarred: #d8621f;
+  --tattooed: #266568; --manager: #7094b5;
+
+  
+  --link: #4f8cff;
+  --link-hover: #8ab4ff;
+  --danger: #e0413f;
+
+  
+  --tooltip-background: #1a1d24;
+  --tooltip-border: #46505f;
+}
+
+
+
+
+
+
+html[data-dol-skin="sakura"][data-dol-skin] {
+  
+  color-scheme: light;
+
+  
+  --000: #3A3A3A;   
+  --100: #504247;   
+  --150: #635358;   
+  --200: #6f6f6f;   
+  --300: #918186;   
+  --400: #a4969a;   
+  --500: #b8acaf;   
+  --600: #cdc5c7;   
+  --700: #C99CA9;   
+  --750: #f5eff1;   
+  --800: #f8f4f4;   
+  --850: #FFFFFF;   
+  --900: #FFF5F7;   
+
+  
+  --dol-ink-faint: var(--200);
+
+  
+  --dol-line-ctl: var(--300);
+
+  
+  --link: #ae5170;
+  --link-hover: #994763;   
+  --danger: #aa475b;       
+  --dol-pill: 5%;          
+
+  
+  --red:    #cc2622;  
+  --pink:   #c8216c;  
+  --pink-secondary: #b33889;  
+  --purple: #714de2;  
+  --purple-secondary: #9941be;  
+  --blue:   #2463dc;  
+  --blue-secondary: #366f93;  
+  --teal:   #136a6a;  
+  --green:  #49725c;  
+  --green-secondary: #437443;  
+  --lime:   #227921;  
+  --orange: #9f581a;  
+  --brown:  #724c3c;  
+  --black:  #5f6b7d;  
+  --yellow: #7d6814;  
+  --gold:   #866416;  
+  --silver: #5b6b86;  
+
+  
+  --lewd: #c82460;    --defiant: #a91f1f;    --meek: #b43b7b;  
+  --brat: #a4533b;    --relaxed: #5c6991;    --anxious: #90304f; 
+  --veteran: #8655aa;   --methodical: #b34264;  --scarred: #aa501c; 
+  --tattooed: #1e5658;  --manager: #496d8e;   
+
+  
+  --tooltip-background: #FFFFFF;
+  --tooltip-border: #d4b0bb;
+
+  
+  --dol-r-xs: 6px;
+  --dol-r-sm: 8px;
+  --dol-r: 12px;
+  --dol-r-lg: 18px;
+
+  
+  --dol-elev-1: 0 2px 8px rgb(180 140 150 / 8%);
+  --dol-elev-2: 0 2px 8px rgb(180 140 150 / 8%), 0 12px 28px rgb(180 140 150 / 11%);
+  --dol-elev-3: 0 10px 22px rgb(180 140 150 / 13%), 0 30px 60px rgb(180 140 150 / 15%);
+  --dol-inset: inset 0 1px 0 rgba(255, 255, 255, .75);
+
+  
+  --dol-dur: .15s;
+
+  
+  --dol-read: #FBF6F7;   
+  --dol-read-warm: #F3EAEC;   
+  --dol-page-tint: radial-gradient(120% 55% at 50% -8%, rgba(216, 141, 166, 0.16), transparent 62%),
+    radial-gradient(90% 45% at 100% 108%, rgba(210, 158, 161, 0.13), transparent 60%),
+    repeating-linear-gradient(45deg, rgba(167, 78, 108, 0.05) 0 9px, transparent 9px 18px);
+}
+
+
+html[data-dol-skin="mist"][data-dol-skin] {
+  color-scheme: light;
+
+  
+  --000: #2D3748;   
+  --100: #40454d;   
+  --150: #50565f;   
+  --200: #626f84;   
+  --300: #7e848d;   
+  --400: #9298a1;   
+  --500: #a8adb5;   
+  --600: #c2c5ca;   
+  --700: #A0AEC0;   
+  --750: #ecf0f3;   
+  --800: #f0f3f6;   
+  --850: #FFFFFF;   
+  --900: #F4F6F8;   
+
+  --dol-ink-faint: var(--200);
+  --dol-line-ctl: var(--300);
+
+  --link: #4562e6;         
+  --link-hover: #3050e3;   
+  --danger: #aa475b;       
+  --dol-pill: 5%;          
+
+  --red:    #cc2622;  
+  --pink:   #c8216c;  
+  --pink-secondary: #b33889;  
+  --purple: #714de2;  
+  --purple-secondary: #9941be;  
+  --blue:   #2463dc;  
+  --blue-secondary: #366f93;  
+  --teal:   #136a6a;  
+  --green:  #49725c;  
+  --green-secondary: #437443;  
+  --lime:   #227921;  
+  --orange: #9f581a;  
+  --brown:  #724c3c;  
+  --black:  #5f6b7d;  
+  --yellow: #7d6814;  
+  --gold:   #866416;  
+  --silver: #5b6b86;  
+  --lewd: #c82460;    --defiant: #a91f1f;    --meek: #b43b7b;  
+  --brat: #a4533b;    --relaxed: #5c6991;    --anxious: #90304f; 
+  --veteran: #8655aa;   --methodical: #b34264;  --scarred: #aa501c; 
+  --tattooed: #1e5658;  --manager: #496d8e;   
+
+  --tooltip-background: #FFFFFF;
+  --tooltip-border: #afbaca;   
+
+  --dol-r-xs: 6px;
+  --dol-r-sm: 8px;
+  --dol-r: 12px;
+  --dol-r-lg: 18px;
+
+  
+  --dol-elev-1: 0 2px 8px rgb(45 55 72 / 8%);
+  --dol-elev-2: 0 2px 8px rgb(45 55 72 / 8%), 0 12px 28px rgb(45 55 72 / 11%);
+  --dol-elev-3: 0 10px 22px rgb(45 55 72 / 13%), 0 30px 60px rgb(45 55 72 / 15%);
+  --dol-inset: inset 0 1px 0 rgba(255, 255, 255, .75);
+  --dol-dur: .15s;
+
+  --dol-read: #F6F9FB;   
+  --dol-read-warm: #E9EFF2;   
+  --dol-page-tint: radial-gradient(120% 55% at 50% -8%, rgba(131, 148, 226, 0.16), transparent 62%),
+    radial-gradient(90% 45% at 100% 108%, rgba(167, 154, 214, 0.13), transparent 60%),
+    repeating-linear-gradient(45deg, rgba(61, 83, 184, 0.05) 0 9px, transparent 9px 18px);
+}
+
+
+html[data-dol-skin="cocoa"][data-dol-skin] {
+  color-scheme: light;
+
+  --000: #422D26;   
+  --100: #4b413e;   
+  --150: #5d524f;   
+  --200: #7e6860;   
+  --300: #8c807c;   
+  --400: #9f9491;   
+  --500: #b4a9a6;   
+  --600: #c8c1bf;   
+  --700: #8C6354;   
+  --750: #f2eaeb;   
+  --800: #f5efef;   
+  --850: #FFFDFD;   
+  --900: #FFF0F2;   
+
+  --dol-ink-faint: var(--200);
+  --dol-line-ctl: var(--300);
+
+  --link: #7A4B3A;         
+  --link-hover: #6f4435;   
+  --danger: #aa475b;       
+  
+
+  --red:    #cc2622;  
+  --pink:   #c8216c;  
+  --pink-secondary: #b33889;  
+  --purple: #714de2;  
+  --purple-secondary: #9941be;  
+  --blue:   #2463dc;  
+  --blue-secondary: #366f93;  
+  --teal:   #136a6a;  
+  --green:  #49725c;  
+  --green-secondary: #437443;  
+  --lime:   #227921;  
+  --orange: #9f581a;  
+  --brown:  #724c3c;  
+  --black:  #5f6b7d;  
+  --yellow: #7d6814;  
+  --gold:   #866416;  
+  --silver: #5b6b86;  
+  --lewd: #c82460;    --defiant: #a91f1f;    --meek: #b43b7b;  
+  --brat: #a4533b;    --relaxed: #5c6991;    --anxious: #90304f; 
+  --veteran: #8655aa;   --methodical: #b34264;  --scarred: #aa501c; 
+  --tattooed: #1e5658;  --manager: #496d8e;   
+
+  --tooltip-background: #FFFDFD;
+  --tooltip-border: #ccb3aa;   
+
+  --dol-r-xs: 6px;
+  --dol-r-sm: 8px;
+  --dol-r: 12px;
+  --dol-r-lg: 18px;
+
+  --dol-elev-1: 0 2px 8px rgb(66 45 38 / 8%);
+  --dol-elev-2: 0 2px 8px rgb(66 45 38 / 8%), 0 12px 28px rgb(66 45 38 / 11%);
+  --dol-elev-3: 0 10px 22px rgb(66 45 38 / 13%), 0 30px 60px rgb(66 45 38 / 15%);
+  --dol-inset: inset 0 1px 0 rgba(255, 255, 255, .75);
+  --dol-dur: .15s;
+
+  --dol-read: #FDF6F7;   
+  --dol-read-warm: #F5E8EB;   
+  --dol-page-tint: radial-gradient(120% 55% at 50% -8%, rgba(215, 161, 142, 0.16), transparent 62%),
+    radial-gradient(90% 45% at 100% 108%, rgba(209, 192, 158, 0.13), transparent 60%),
+    repeating-linear-gradient(45deg, rgba(166, 102, 79, 0.05) 0 9px, transparent 9px 18px);
+}
+
+
+
+
+
+html:root .saveMenuButton,
+html:root #saves-list-container .saveMenuButton button { color: var(--dol-on-fill); }
+html:root .saveMenuButton:hover { color: var(--dol-on-fill); }
+
+
+html[data-dol-tone="light"] #restart-ok,
+html[data-dol-tone="light"] #restart-cancel,
+html[data-dol-tone="light"] #error-reporter-container .button {
+  background-color: var(--link);
+  color: var(--900);
+  border: 0;
+}
+html[data-dol-tone="light"] #restart-ok:hover,
+html[data-dol-tone="light"] #restart-cancel:hover {
+  background-color: var(--link-hover);
+  color: var(--900);
+}
+html[data-dol-tone="light"] #ui-dialog-close:hover,
+html[data-dol-tone="light"] .close {
+  background-color: var(--red);
+  color: var(--900);
+  border: 0;
+}
+html[data-dol-tone="light"] #ui-dialog-titlebar { background-color: var(--750); }
+
+
+html[data-dol-tone="light"] .ironman-clarify,
+html[data-dol-tone="light"] .light-grey { color: var(--200); }
+html[data-dol-tone="light"] .grey { color: var(--150); }   
+
+
+html[data-dol-tone="light"] .whitehair,
+html[data-dol-tone="light"] .snowwhitehair { color: var(--500); }
+html[data-dol-tone="light"] .bg-light,
+html[data-dol-tone="light"] .bg-pale-white,
+html[data-dol-tone="light"] .bg-random,
+html[data-dol-tone="light"] .colour-button:not(.active) > .bg-custom {
+  background-color: var(--500);
+  color: var(--000);
+}
+html[data-dol-tone="light"] .bg-dark,
+html[data-dol-tone="light"] .text-dark { background-color: var(--000); color: var(--900); }
+html[data-dol-tone="light"] .text-light { background-color: var(--600); color: var(--000); }
+
+
+html[data-dol-tone="light"] .colour-name-span,
+html[data-dol-tone="light"] .pattern > div > div > .colour-name-span {
+  mix-blend-mode: normal;
+  filter: none;
+  color: var(--000);
+  background-color: var(--900);
+  padding: 0 4px;
+  border-radius: var(--dol-r-xs);
+}
+
+
+html[data-dol-tone="light"] #clothes-list .category-tab > img,
+html[data-dol-tone="light"] #clothes-list img.clothing-trait,
+html[data-dol-tone="light"] #clothes-list > .filters-button img,
+html[data-dol-tone="light"] #clothes-list > .clothingshop-options-button img,
+html[data-dol-tone="light"] #clothes-list > .shop-legend-button img,
+html[data-dol-tone="light"] .wardrobe-options-button img,
+html[data-dol-tone="light"] #clothes-list .warmth-indicator,
+html[data-dol-tone="light"] #clothingShop-div > img.icon {
+  filter: invert(1) opacity(.82);
+}
+
+
+html[data-dol-tone="light"] .softblond   { color: var(--gold); }
+html[data-dol-tone="light"] .ashy        { color: var(--brown); }
+html[data-dol-tone="light"] .platinum    { color: var(--silver); }
+html[data-dol-tone="light"] .neonblue    { color: var(--blue-secondary); }
+
+
+html[data-dol-tone="light"] #saves-list-container,
+html[data-dol-tone="light"] #saves-list-container .savesListRow,
+html[data-dol-tone="light"] #saves-export-reminder,
+html[data-dol-tone="light"] :is(#ui-dialog-body.saves, #saveList) > ul.buttons {
+  border-color: var(--dol-line);
+}
+
+
+html[data-dol-tone="light"] .hpi_gridHeader,
+html[data-dol-tone="light"] .ssm_header {
+  background-color: var(--dol-panel-2);
+  border-color: var(--dol-line);
+}
+
+
+html[data-dol-tone="light"] .ssm_neon { color: var(--pink-secondary); }
+html[data-dol-tone="light"] .hpi_indic_blue { color: var(--blue-secondary); }
+
+html[data-dol-tone="light"] .sti_grid_carried_count { color: var(--dol-ink-dim); }
+
+html[data-dol-tone="light"] #startBannerModLoaderGui { color: var(--dol-ink-dim) !important; }
+
+html[data-dol-tone="light"] .modhub-tab-badge { color: var(--dol-page); }
+
+html[data-dol-tone="light"] #customOverlayContent .red.percentage { color: var(--red) !important; }
+
+
+
+html[data-dol-font="a"] {
+  
+  --dol-font-ui: "DolUiMaoken", "Yu Gothic UI", "Yu Gothic", "Noto Sans SC", "Microsoft YaHei UI", system-ui, sans-serif;
+  --dol-font-body: var(--dol-font-ui);
+  
+  --dol-p-space: 1.15em;
+  --dol-ls-title: .02em;
+  
+  --dol-fw-title: 700;
+}
+
+
+
+
+
+html .disabled,
+html .disabled * { color: var(--dol-ink-faint); }
+
+
+html .numberStepper:disabled {
+  background-color: var(--dol-panel-2);
+  color: var(--dol-ink-dim);
+}
+
+
+html .featButtonGrey button,
+html .featButtonGrey button:hover:not([disabled]) {
+  background-color: var(--dol-panel-2);
+  color: var(--dol-ink-dim);
+}
+
+
+.ssm_header,
+.sti_grid_title { font-family: var(--dol-font-body); }
+
+
+
+
+
+html[data-dol-read="warm"][data-dol-read] { --dol-read: var(--dol-read-warm); }
+html[data-dol-read="bright"][data-dol-read] {
+  --dol-read: color-mix(in oklab, var(--dol-panel) 82%, transparent);
+}

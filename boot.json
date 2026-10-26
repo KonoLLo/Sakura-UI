@@ -1,0 +1,63 @@
+{
+  "name": "sakura-ui",
+  "nickName": {
+    "en": "Sakura-UI",
+    "cn": "樱花界面"
+  },
+  "version": "1.0.0",
+  "styleFileList": [
+    "dol-ui.css",
+    "dol-ui-shell.css",
+    "dol-ui-panels.css",
+    "dol-ui-narrow.css",
+    "dol-ui-shape.css",
+    "dol-ui-pages.css",
+    "dol-ui-wardrobe.css",
+    "dol-ui-shop.css",
+    "dol-ui-shop-detail.css",
+    "dol-ui-saves.css",
+    "dol-ui-kitchen.css",
+    "dol-ui-pages-narrow.css"
+  ],
+  "scriptFileList": [
+    "dol-ui.js",
+    "dol-ui-tips.js",
+    "dol-ui-prefs.js"
+  ],
+  "tweeFileList": [
+    "settings.twee"
+  ],
+  "imgFileList": [],
+  "additionFile": [
+    "readme.txt"
+  ],
+  "addonPlugin": [
+    {
+      "modName": "TweeReplacer",
+      "addonName": "TweeReplacerAddon",
+      "modVersion": "^1.0.0",
+      "params": [
+        {
+          "passage": "overlayReplace",
+          "findRegex": "<<optionsinformation>>\\s*<<\\/replace>>[\\s\\S]*?<<\\/button>>",
+          "regexFlag": "",
+          "replace": "<<optionsinformation>><</replace>>\n\t\t<</button>><<dolUiModTab>>"
+        }
+      ]
+    }
+  ],
+  "dependenceInfo": [
+    {
+      "modName": "ModLoader",
+      "version": "^2.31.2"
+    },
+    {
+      "modName": "TweeReplacer",
+      "version": "^1.0.0"
+    },
+    {
+      "modName": "GameVersion",
+      "version": ">=0.5.11.9"
+    }
+  ]
+}

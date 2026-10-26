@@ -1,0 +1,424 @@
+
+
+
+
+.clothing-details {
+  box-sizing: border-box;
+  margin: 0;
+  position: relative;
+}
+
+.clothing-details:has(> .dol-shop-cart) { margin-bottom: var(--dol-cartH); }
+.clothing-details:has(> *) {
+  padding: 12px;
+  border: 1px solid var(--dol-line);
+  border-radius: var(--dol-r);
+  background-color: var(--dol-panel);
+}
+
+
+
+.clothing-details > br,
+.dol-shop-desc > br { display: none; }
+
+
+.clothing-details > span,
+.dol-shop-desc > span,
+.dol-shop-info > span { font-size: 13px; line-height: 1.7; }
+
+
+.dol-shop-desc {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--dol-ink);
+  margin: 0 0 14px;
+}
+.dol-shop-desc .trait-description { margin: 0 0 4px; }
+
+
+.clothing-details #mannequin,
+.clothing-details .mannequin.both-renderers {
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  height: auto;
+  margin: 0 0 8px;
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+  overflow: visible;         
+}
+.clothing-details .mannequin-inner {
+  position: relative;
+  transform: none;           
+  box-sizing: border-box;
+  flex: 0 0 100%;            
+  width: 100%;
+  height: auto;
+  aspect-ratio: 216 / 194;   
+  overflow: hidden;
+  border: 1px solid var(--dol-line);
+  border-radius: var(--dol-r-sm);
+  background-color: var(--dol-panel-2);
+}
+.clothing-details .both-renderers .canvas-mannequin {
+  transform: scale(1.18519);           
+  transform-origin: 80% 0;
+}
+.clothing-details .mannequin-inner > canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;                     
+  transform: scale(1.18519);
+  transform-origin: 80% 0;
+  border-radius: var(--dol-r-sm);
+  image-rendering: pixelated;
+}
+.clothing-details .clothing-colours-div { position: static; display: block; margin: 0 0 10px; }
+.clothing-colours-div .mannequin-placeholder { display: none; }   
+
+
+.clothing-details .mannequin-buttons {
+  position: static;
+  order: 1;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.clothing-details .mannequin-buttons-right {
+  position: static;
+  order: 3;
+  box-sizing: border-box;
+  height: 28px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 6px;
+  border: 1px solid var(--dol-line-ctl);
+  border-radius: var(--dol-r-sm);
+  background-color: var(--dol-panel-2);
+  font-size: 12.5px;
+  font-variant-numeric: tabular-nums;
+}
+.clothing-details .mannequin-buttons-right > a { display: inline-grid; place-items: center; min-width: 20px; height: 26px; }
+.clothing-details .mannequin-gender-button {
+  position: relative;
+  opacity: 1;                
+  box-sizing: border-box;
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--dol-line-ctl);
+  border-radius: var(--dol-r-sm);                       
+  background-color: var(--dol-panel-2);
+  cursor: pointer;
+}
+.clothing-details .mannequin-gender-button:hover,
+.clothing-details .mannequin-gender-textbutton:hover { border-color: var(--dol-accent); background-color: var(--dol-panel-3); }
+.clothing-details .mannequin-gender-button img { position: absolute; width: 16px; height: 16px; }
+
+.clothing-details .mannequin-gender-textbutton {
+  position: static;
+  order: 2;
+  box-sizing: border-box;
+  width: auto;
+  height: 28px;
+  margin: 0;               
+  display: inline-flex;
+  align-items: center;
+  padding: 0 10px;
+  border: 1px solid var(--dol-line-ctl);
+  border-radius: var(--dol-r-sm);                       
+  color: var(--dol-ink);
+  background-color: var(--dol-panel-2);
+  font-size: 12.5px;
+  text-align: center;
+}
+.clothing-details .mannequin-gender-textbutton > a.macro-link:empty {
+  display: block;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.clothing-details .try-button {
+  order: 4;
+  box-sizing: border-box;
+  height: 28px;
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 10px;
+  border: 1px solid var(--dol-line-ctl);
+  border-radius: var(--dol-r-sm);
+  background-color: var(--dol-panel-2);
+  font-size: 12.5px;
+  cursor: pointer;
+}
+.clothing-details .try-button:hover { border-color: var(--dol-accent); background-color: var(--dol-panel-3); }
+
+
+.clothing-details .trait-description { align-items: center; flex-wrap: wrap; gap: 8px; font-size: 13px; }
+.clothing-details .clothing-trait { margin-right: 0; border: 1px solid var(--dol-line); border-radius: var(--dol-r-xs); }
+
+
+
+.colours-container,
+.translate-colours-container { transform: none; width: auto; min-width: 0; }
+
+.colour-options-div {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 6px;
+  margin: 0 0 6px;
+  padding-bottom: 4px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: thin;
+}
+
+.dol-strip-nav {
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 auto;
+  box-sizing: border-box;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 1px solid var(--dol-line-ctl);
+  border-radius: var(--dol-r-sm);
+  background-color: var(--dol-panel-2);
+  color: var(--dol-ink);
+  cursor: pointer;
+}
+.dol-strip-nav::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  border-top: 2px solid currentColor;
+  border-left: 2px solid currentColor;
+  transform: rotate(-45deg) translate(1px, 1px);
+}
+.dol-strip-nav[data-dol="strip-next"]::before { transform: rotate(135deg) translate(1px, 1px); }
+.dol-strip-nav:hover:not([disabled]) { border-color: var(--dol-accent); color: var(--dol-accent); }
+.dol-strip-nav[disabled] {
+  color: var(--dol-ink-faint);
+  border-color: var(--dol-line-soft);
+  background-color: transparent;
+  cursor: default;
+}
+.colour-button {
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  min-width: 68px;
+  height: 32px;
+  border: 1px solid var(--dol-line-ctl);
+  border-radius: var(--dol-r-xs);
+  overflow: hidden;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: border-color var(--dol-dur) var(--dol-ease),
+              box-shadow var(--dol-dur) var(--dol-ease);
+}
+
+.colour-button > div {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  padding: 0 6px;
+}
+.colour-button .colour-name-span { font-size: 12px; }
+.colour-button:hover { border-color: var(--dol-accent); }
+.colour-button.active {
+  border-color: var(--dol-accent);
+  box-shadow: inset 0 0 0 1px var(--dol-accent);
+}
+
+#clothes-list .div-link a.macro-link:empty {
+  display: block;
+  height: 0;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+
+.clothing-details #warmth-description { font-size: 12.5px; color: var(--dol-ink-dim); line-height: 1.7; }
+
+
+.dol-buybar .buy-buttons,
+.clothing-details .buy-buttons,
+.dol-buybar #buy-send-home > .buy-button,
+.clothing-details #buy-send-home > .buy-button,
+.clothing-details .try-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--dol-b-gap);
+}
+
+@media screen and (min-width: 601px) {
+  .dol-buybar {
+    position: fixed;
+    bottom: 0;
+    left: calc(var(--dol-fixedL) + var(--dol-sp-4));
+    right: calc(var(--dol-fixedR) + var(--dol-sp-4));
+    margin-inline: auto;
+    max-width: 1240px;
+    box-sizing: border-box;
+    font-size: 18px;
+    z-index: 299;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-end;   
+    gap: var(--dol-b-gap);
+    padding: 6px 12px calc(6px + env(safe-area-inset-bottom));
+    border: 1px solid var(--dol-line-ctl);
+    border-bottom: 0;
+    border-radius: var(--dol-r-lg) var(--dol-r-lg) 0 0;
+    background-color: var(--900);
+    background-image: linear-gradient(var(--dol-panel), var(--dol-panel));
+  }
+  
+  .dol-buybar .buy-buttons { flex: 0 1 auto; min-width: 0; flex-wrap: nowrap; overflow-x: auto; margin: 0; }
+  
+  .dol-buybar > button[data-dol="bar-clear"] {
+    box-sizing: border-box;
+    flex: 0 0 auto;
+    width: auto;
+    min-width: 0;
+    max-width: none;
+    height: auto;
+    min-height: var(--dol-b-h);
+    margin: 0;
+    padding: 0 12px;
+    border: 1px solid var(--dol-line-ctl);
+    border-radius: var(--dol-r-sm);
+    background-color: var(--dol-panel-2);
+    color: var(--dol-ink);
+    font-size: 13.5px;
+    white-space: nowrap;
+  }
+  .clothing-details #buy-send-home,
+  .clothing-details #buy-send-home > .buy-button,
+  .dol-buybar #buy-send-home,
+  .dol-buybar #buy-send-home > .buy-button { display: contents; }
+  .buy-buttons > .buy-button { order: 2; }
+  .buy-multiple { order: 3; }
+  
+  .dol-buybar #buy-multiple-slider,
+  .clothing-details #buy-multiple-slider { order: 1; }
+  
+  .buy-buttons > .buy-button,
+  .buy-multiple {
+    border: 1px solid var(--dol-line-ctl);
+    border-radius: var(--dol-r-sm);
+    background-color: var(--dol-panel-2);
+  }
+  .buy-multiple:hover { border-color: var(--dol-accent); background-color: var(--dol-panel-3); }
+  
+  body:has(.dol-buybar > .buy-buttons) #next { bottom: var(--dol-buyH); }
+  
+  body:has(.dol-buybar > .buy-buttons) #passages {
+    padding-bottom: calc(var(--dol-buyH) + var(--dol-nextH) + 8px);
+  }
+  
+  .dol-cart-bar,
+  .dol-warm-toggle { display: none; }
+}
+
+.dol-buybar:empty { display: none; }
+
+.clothing-details .buy-button,
+.dol-buybar .buy-button,
+.clothing-details #buy-send-home,
+.dol-buybar #buy-send-home {
+  box-sizing: border-box;
+  width: auto;
+  min-height: var(--dol-b-h);
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--dol-line-ctl);
+  border-radius: var(--dol-r-sm);
+  background-color: var(--dol-panel-2);
+  transition: var(--dol-tr-hl);
+}
+
+.clothing-details #buy-send-home > .buy-button,
+.dol-buybar #buy-send-home > .buy-button {
+  border: 0;
+  background-color: transparent;
+}
+
+.clothing-details .buy-button-inner,
+.dol-buybar .buy-button-inner {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  min-height: 32px;
+  box-sizing: border-box;
+  padding: 0 12px;
+  font-size: 13.5px;
+}
+.clothing-details .buy-button:hover,
+.dol-buybar .buy-button:hover,
+.clothing-details #buy-send-home:hover,
+.dol-buybar #buy-send-home:hover { background-color: var(--dol-panel-3); border-color: var(--dol-accent); }
+
+.clothing-details .buy-multiple-slider,
+.dol-buybar .buy-multiple-slider { width: auto; padding: 0; }
+.clothing-details .buy-multiple-slider div[id|="numberslider-body"],
+.dol-buybar .buy-multiple-slider div[id|="numberslider-body"] {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: auto;
+  min-width: 0;
+}
+.clothing-details .buy-multiple-slider div[id|="numberslider-body"] input,
+.dol-buybar .buy-multiple-slider div[id|="numberslider-body"] input { width: 110px; max-width: 110px; margin: 0; }
+.clothing-details .buy-multiple-slider div[id|="numberslider-body"] span,
+.dol-buybar .buy-multiple-slider div[id|="numberslider-body"] span {
+  min-width: 2em;
+  margin-left: 0;
+  font-size: 12.5px;
+  line-height: 1.4;
+}
+
+.clothing-details .try-buttons { margin: 0; justify-content: center; }
+
+
+.dol-shop-title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 10px;
+  margin: 0 0 10px;
+  padding: 0 0 8px;
+  border-bottom: 1px solid var(--dol-line-soft);
+  font-size: 16px;
+  font-weight: 700;
+}
+.dol-shop-title .dol-shop-title-note {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--dol-accent);
+  font-variant-numeric: tabular-nums;
+}
+
+

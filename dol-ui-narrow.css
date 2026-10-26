@@ -1,0 +1,220 @@
+
+
+
+
+@media (max-width: 720px) {
+  html {
+    
+    --dol-barW: min(17.5em, 86vw);
+    --dol-storyML: 0;
+    
+    --dol-storyML-stowed: 2.6em;
+    
+    --dol-fixedL: 0px;
+    --dol-fixedR: 0px;
+    --dol-sp-4: 1em;
+    --dol-sp-5: 1.15em;
+  }
+  
+  #story { margin-right: 0; transition: none; }
+  #passages {
+    padding-left: var(--dol-sp-4);
+    padding-right: var(--dol-sp-4);
+    padding-bottom: calc(5.6em + env(safe-area-inset-bottom));
+  }
+  
+
+  
+  #ui-bar {
+    width: var(--dol-barW);
+    z-index: 400;
+    border-right: 1px solid var(--dol-line);
+    box-shadow: var(--dol-elev-3);
+    background-color: var(--dol-panel);
+  }
+  #ui-bar.stowed { left: calc(2.5em - var(--dol-barW)); }
+  
+  #ui-bar::before {
+    content: "";
+    position: fixed;
+    top: 0; right: 0; bottom: 0;
+    left: calc(var(--dol-barW) + 1px);
+    z-index: -1;
+    background: rgba(0, 0, 0, .6);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    pointer-events: none;
+    opacity: 0;
+    transition: left .2s ease-in, opacity .2s ease-in;
+  }
+  #ui-bar:not(.stowed)::before { opacity: 1; }
+  #ui-bar.stowed::before { left: calc(2.5em + 1px); }   
+  #ui-bar-body { padding: var(--dol-sp-4) var(--dol-sp-3); }
+
+  
+  #stats,
+  body.has-images #storyCaptionContent,
+  body.has-images #story-caption #storyCaptionDiv { width: 100%; }
+
+  
+  #ui-bar .macro-button,
+  #ui-bar .closeButton,
+  #ui-bar .buttonlike { max-width: none; }
+
+  
+  #overlayButtons > button.macro-button,
+  #overlayButtons > .sidebarButtonSplit > button,
+  #overlayButtons > span.modhub-sidebar-entry > button { min-height: var(--dol-tap); }
+
+  #ui-bar-toggle {
+    z-index: 2;
+    min-width: var(--dol-tap);
+    min-height: var(--dol-tap);
+    border-radius: var(--dol-r-sm);
+  }
+  
+  #ui-bar.stowed #ui-bar-toggle { right: calc(40px - var(--dol-tap)); }
+
+  
+  #mobileStats {
+    width: 32px;
+    top: calc(56px + env(safe-area-inset-top));
+    left: 0;
+    z-index: 300;
+  }
+  
+  #mobileStats .stat {
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    padding: 5px 0;
+    font-size: 15px;
+    line-height: 1.15;
+    border: 1px solid var(--dol-line);
+    border-radius: var(--dol-r-sm);
+    background-color: var(--dol-panel);
+    box-shadow: var(--dol-elev-1);
+  }
+  #mobileStats .time, #mobileStats #weatherIcon {
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: var(--dol-r-sm);
+    background-color: var(--dol-panel);
+    border: 1px solid var(--dol-line);
+  }
+  
+  #mobileStats mouse.tooltip-centertop { color: inherit; }
+
+  
+  #next { padding-bottom: env(safe-area-inset-bottom); }
+  #next a, #skip a, #stop a { min-height: var(--dol-tap); padding: .7em 1.3em; }
+
+  
+  #passages a.macro-link:not(:is(#next, #skip, #stop) a):not(.dol-lrow a):not(:is(#wardrobeLinks, #wardrobeList, #listoutfits, #clothes-list, #kitchenDisplay) a):not(:is(.wardrobe-action, .div-link) a) { padding: .34em .5em; }
+
+  
+  
+  #passage-content > .dol-lrow { padding: 5px 6px; gap: 8px; min-height: 42px; }
+  #passage-content > .dol-grp { margin: 12px 0 5px; }
+  #storyCaptionContent > .dol-cap-seg { margin-bottom: 6px; padding: 6px 7px; }
+  
+  #listContainer > div[id$="action"] { padding: 2px 6px 8px; }
+  
+  #overlayTabs { gap: 4px; padding: 6px 6px; }
+  #overlayTabs > *:not(.colourCodes) { padding: 5px 11px; }
+
+  
+  .combat-close { flex-wrap: wrap; }
+
+  
+  #passages input[type=text], #passages input[type=number],
+  #passages input[type=password], #passages textarea { min-width: 0; }
+
+  
+  .customOverlayContainer { left: 0; width: 100%; }
+  #customOverlayContent { padding: 6px 4px 14px; margin: 0 4px; }
+  .settingsGrid { grid-template-columns: minmax(0, 1fr); gap: 10px; margin: 10px 2px; }
+  .tab > * { padding: 8px 11px; font-size: .84rem; }
+  
+  
+  html:has(#ui-bar.stowed) { --dol-fixedL: 41.6px; }
+}
+
+
+@media (max-width: 420px) {
+  #listContainer > div[id$="action"] { min-width: 0; }
+  #listContainer .radioControl label,
+  #listContainer .columnRadioControl label { padding: 5px 9px; }
+  .passage table { font-size: .95em; }
+}
+
+
+@media (min-width: 721px) and (max-width: 1024px) {
+  html { --dol-barW: 240px; --dol-storyML: 3em; --dol-storyML-stowed: 3em;
+         --dol-fixedL: 48px; --dol-fixedR: 16px; }   
+  
+  html:has(#ui-bar.stowed) { --dol-fixedL: 48px; }
+  #story { margin-left: 3em; }
+  #ui-bar:not(.stowed) { box-shadow: var(--dol-elev-3); }
+  
+  #ui-bar:not(.stowed) ~ #story #passages { opacity: .8; }
+  
+}
+
+
+@media only screen and (max-width: 500px) {
+  mouse.tooltip:hover span:last-of-type,
+  mouse.tooltip-small:hover span:last-of-type,
+  mouse.tooltip-tiny:hover span:last-of-type,
+  mouse.tooltip-centertop:hover span:last-of-type,
+  mouse.tooltip-image:hover span:last-of-type {
+    display: block;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    margin: 0;
+    z-index: 5000;
+    max-width: min(92vw, 450px) !important;
+    padding-bottom: calc(.8em + env(safe-area-inset-top));
+  }
+}
+
+
+@media (max-width: 560px) {
+  .passage table, .passage thead, .passage tbody, .passage tr, .passage td, .passage th { display: block; }
+  .passage tr { margin-bottom: var(--dol-sp-2); border: 1px solid var(--dol-line); border-radius: var(--dol-r-sm); }
+  .passage td, .passage th { border-bottom: 1px solid var(--dol-line-soft); }
+  .passage tr:last-child td { border-bottom: 0; }
+}
+
+
+@media (max-height: 460px) and (orientation: landscape) {
+  #ui-bar-body { height: auto; max-height: 100%; }
+  #next { bottom: 0; }
+  #next a { padding: .4em 1.1em; margin: .25em .15em; }
+}
+
+
+
+@media (prefers-reduced-motion: reduce) {
+  html:not([data-dol-base]):not([data-dol-scheme]) {
+    --dol-dur: 0s;
+    --dol-dur-slow: 0s;
+  }
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+html[data-dol-fx="off"]:not([data-dol-base]):not([data-dol-scheme]) {
+  --dol-elev-3: var(--dol-elev-1);
+}
+html[data-dol-fx="off"] #next,
+html[data-dol-fx="off"] mouse.tooltip span:last-of-type {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+

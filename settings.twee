@@ -1,0 +1,70 @@
+:: Dol UI Settings [widget]
+
+
+
+<<widget "dolUiModTab">>
+	<<button "玄屏界面">>
+		<<toggleTab>>
+		<<replace #customOverlayContent>><<dolUiPanel>><</replace>>
+	<</button>>
+<</widget>>
+
+<<widget "dolUiPanel">>
+	<<if typeof DolUiPrefs is "object">>
+		<div id="dolUiPanel" class="settingsGrid">
+
+			<div class="settingsHeader"><span class="gold">配色</span></div>
+			<div class="settingsToggleItemWide">
+				<label><input type="radio" name="dolui-skin" data-dolui-pref="skin" value="sakura"> 玫瑰灰</label> |
+				<label><input type="radio" name="dolui-skin" data-dolui-pref="skin" value="mist"> 莫兰迪粉蓝</label> |
+				<label><input type="radio" name="dolui-skin" data-dolui-pref="skin" value="cocoa"> 复古巧克力</label> |
+				<label><input type="radio" name="dolui-skin" data-dolui-pref="skin" value="ink"> 石墨（深色）</label>
+				<mouse class="tooltip-small linkBlue">(?)<span>四档只换颜色，布局、字号、按钮位置一个都不动。前三档都是浅色底，文字与描边按同一套对比度重算过；石墨是原来的深色档。</span></mouse>
+			</div>
+
+			<div class="settingsHeader"><span class="gold">正文字体</span></div>
+			<div class="settingsToggleItemWide">
+				<label><input type="radio" name="dolui-font" data-dolui-pref="font" value="none"> 跟随游戏</label> |
+				<label><input type="radio" name="dolui-font" data-dolui-pref="font" value="a"> 什锦黑</label>
+				<mouse class="tooltip-small linkBlue">(?)<span>什锦黑已经打在这个模组包里，不用联网、不用另外装字体。选了它，小标题会变粗、正文维持常规；字号和行距还是游戏自己的设置，这一档不碰。</span></mouse>
+			</div>
+
+			<div class="settingsHeader"><span class="gold">正文底色</span></div>
+			<div class="settingsToggleItemWide">
+				<label><input type="radio" name="dolui-read" data-dolui-pref="read" value="soft"> 柔（暖白）</label> |
+				<label><input type="radio" name="dolui-read" data-dolui-pref="read" value="bright"> 亮</label> |
+				<label><input type="radio" name="dolui-read" data-dolui-pref="read" value="warm"> 暖（护眼）</label>
+				<mouse class="tooltip-small linkBlue">(?)<span>只改正文卡片的纸色，四套配色、字号、行距都不动。柔＝暖白纸面（默认，比原来的纯白暗一档）；亮＝换肤前的白；暖＝明显偏暗的暖灰纸，适合长时间阅读。</span></mouse>
+			</div>
+
+			<div class="settingsHeader"><span class="gold">观感</span></div>
+			<div class="settingsToggleItem">
+				<label><input type="checkbox" data-dolui-pref="fx"> 毛玻璃与深投影</label>
+				<mouse class="tooltip-small linkBlue">(?)<span>关掉后提示气泡与底部继续按钮不再透出背后模糊，浮层也收掉最外层投影。颜色、圆角、间距都不受影响；系统开了"减少动态效果"时本来就走同一条通道。</span></mouse>
+			</div>
+
+			<div class="settingsHeader"><span class="gold">界面重排</span></div>
+			<div class="settingsToggleItem">
+				<label><input type="checkbox" data-dolui-pref="cap"> 侧栏分卡</label>
+				<mouse class="tooltip-small linkBlue">(?)<span>把侧栏的描写、状态条、按钮各自装进一张卡片。</span></mouse>
+			</div>
+			<div class="settingsToggleItem">
+				<label><input type="checkbox" data-dolui-pref="rows"> 正文链接分组</label>
+				<mouse class="tooltip-small linkBlue">(?)<span>正文里的选项链接按小标题分组、一行一条，并把括号里的耗时挪到行末。</span></mouse>
+			</div>
+			<div class="dol-note">上面两条由脚本重排现有内容，改完从下一段文字起生效，当前这段已经排好的不会当场回退。</div>
+
+			<div class="settingsToggleItemWide">
+				<button type="button" data-dolui-act="reset">恢复默认</button>
+				<span class="dol-note">玄屏 · 现代界面 v<<print DolUiPrefs.version>></span>
+			</div>
+			<div class="dol-note" data-dolui-note="storage" hidden>这台设备的浏览器不让本模组保存设置（隐私模式或站点禁用了本地存储）：改动当场生效，但下次进游戏会回到默认。</div>
+
+		</div>
+	<<else>>
+		<div class="p-2 text-align-center">
+			<h3>玄屏 · 现代界面</h3>
+			<p>未找到 dol-ui-prefs 脚本，请确认本模组已随 ModLoader 正常加载。</p>
+		</div>
+	<</if>>
+<</widget>>

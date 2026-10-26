@@ -1,0 +1,195 @@
+
+
+
+
+:is(#ui-dialog-body, #saveList) #saves-list-container .savesListRow {
+  display: flex;
+  align-items: stretch;
+  gap: 10px;
+  box-sizing: border-box;
+  max-height: none;
+  padding: 8px 10px;
+  margin: 0 0 2px;
+  border-top: 1px solid var(--dol-line-soft);
+  border-left: 2px solid transparent;
+  border-radius: var(--dol-r-sm);
+  transition: background-color var(--dol-dur) var(--dol-ease),
+              border-left-color var(--dol-dur) var(--dol-ease);
+}
+:is(#ui-dialog-body, #saveList) #saves-list-container .savesListRow:hover {
+  background-color: var(--dol-panel-2);
+  border-left-color: var(--dol-accent);
+}
+:is(#ui-dialog-body, #saveList) #saves-list-container #latestSaveRow {
+  border-left-color: var(--dol-accent);
+  background-color: var(--dol-panel-2);
+}
+
+:is(#ui-dialog-body, #saveList) #saves-list-container .savesListRow:has(.saveDetails span):not(:has(.saveMenuButton)) { border-top-style: dashed; }
+
+:is(#ui-dialog-body, #saveList) #saves-list-container .savesListRow:first-child {
+  border-top: 0;
+  padding-bottom: 2px;
+  font-size: 11.5px;
+  letter-spacing: .05em;
+  color: var(--dol-ink-faint);
+}
+:is(#ui-dialog-body, #saveList) #saves-list-container .savesListRow:first-child:hover {
+  background-color: transparent;
+  border-left-color: transparent;
+}
+
+.saveGroup { flex: 1 1 auto; min-width: 0; flex-wrap: wrap; gap: 6px 10px; }
+#saves-list-container .saveGroup > div { margin: 0; flex: 0 0 auto; }
+#saves-list-container .saveId {
+  align-self: center;
+  min-width: 2em;
+  font-size: 16px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--dol-ink-dim);
+}
+
+#saves-list-container .saveName {
+  width: auto;
+  min-width: 0;
+  align-self: center;
+  font-size: 14px;
+  font-weight: 700;
+}
+#saves-list-container .saveDetails { flex: 1 1 0; min-width: 100px; align-self: center; }
+
+#saves-list-container .saveDetails > span {
+  max-height: none;
+  white-space: normal;
+  overflow: visible;
+  font-size: 12.5px;
+  line-height: 1.6;
+}
+#saves-list-container .datestamp {
+  font-size: 11.5px;
+  color: var(--dol-ink-faint);
+  font-variant-numeric: tabular-nums;
+}
+
+#saves-list-container .saveButton { min-width: 0; margin: 0; display: flex; gap: 5px; align-self: center; }
+#saves-list-container button,
+:is(#ui-dialog-body.saves, #saveList) > ul.buttons button {
+  box-sizing: border-box;
+  min-height: var(--dol-b-h);
+  padding: 0 12px;
+  margin: 0;
+  border-radius: var(--dol-r-sm);
+  font-size: 13.5px;
+}
+#saves-list-container .right { float: none; align-self: center; }
+
+
+:is(#ui-dialog-body.saves, #saveList) > ul.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 8px;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 6px 0;
+  margin: 0;
+  border-top: 1px solid var(--dol-line-soft);
+  list-style: none;
+  font-size: 12.5px;
+}
+:is(#ui-dialog-body.saves, #saveList) > ul.buttons li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0;
+}
+:is(#ui-dialog-body.saves, #saveList) > ul.buttons li:last-child { float: none; }
+:is(#ui-dialog-body.saves, #saveList) ul.buttons input[type="text"],
+:is(#ui-dialog-body.saves, #saveList) ul.buttons input[type="number"],
+:is(#ui-dialog-body.saves, #saveList) > ul.buttons input[type="text"],
+:is(#ui-dialog-body.saves, #saveList) > ul.buttons input[type="number"] {
+  box-sizing: border-box;
+  width: 56px;
+  min-height: 30px;
+  text-align: center;
+}
+:is(#ui-dialog-body, #saveList) #saves-list-container { border-radius: var(--dol-r); overflow: visible; }
+
+
+html:root .saveMenuButton,
+html:root .saveMenuButton:hover {
+  background-color: var(--dol-accent) !important;
+  border: 1px solid var(--dol-accent) !important;
+  color: var(--dol-on-fill) !important;
+  border-radius: var(--dol-r-sm) !important;
+  min-height: 28px;
+  padding: 0 12px;
+  font-size: 12.5px;
+}
+html:root button.saveMenuButton.deleteButton,
+html:root button.saveMenuButton.saves-clear,
+html:root button.saveMenuButton.deleteButton:hover:not([disabled]),
+html:root button.saveMenuButton.saves-clear:hover:not([disabled]) {
+  background-color: transparent !important;
+  border: 1px solid var(--dol-danger) !important;
+  color: var(--dol-danger) !important;
+}
+
+html:root #saves-list-container .right button.saveMenuButton { align-self: center; }
+
+
+
+
+@media (max-width: 720px) {
+  :is(#ui-dialog-body, #saveList) #saves-list-container .savesListRow {
+    display: grid;
+    
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-areas:
+      "ident name  name"
+      "desc  desc  desc"
+      "acts  acts  del";
+    gap: 2px 8px;
+    padding: 8px 8px 10px;
+    border-top: 1px solid var(--dol-line-soft);
+  }
+  :is(#ui-dialog-body, #saveList) #saves-list-container .saveGroup { display: contents; }
+  :is(#ui-dialog-body, #saveList) #saves-list-container .saveGroup .saveId {
+    grid-area: ident;
+    min-width: 0;
+    margin: 0;
+    
+    display: block;
+    justify-self: start;
+    justify-content: flex-start;
+    text-align: left;
+  }
+  :is(#ui-dialog-body, #saveList) #saves-list-container .saveGroup .saveName {
+    grid-area: name;
+    min-width: 0;
+    text-align: right;
+  }
+  :is(#ui-dialog-body, #saveList) #saves-list-container .saveGroup .saveDetails {
+    grid-area: desc;
+    min-width: 0;
+    width: auto;
+    text-align: left;
+  }
+  :is(#ui-dialog-body, #saveList) #saves-list-container .saveGroup .saveButton {
+    grid-area: acts;
+    justify-self: end;
+    align-self: center;
+  }
+  :is(#ui-dialog-body, #saveList) #saves-list-container .right {
+    grid-area: del;
+    justify-self: end;
+    align-self: center;
+    float: none;
+  }
+}
+
+@media (max-width: 720px) {
+  
+  #saves-list-container > .savesListRow:first-child { display: none !important; }
+}
