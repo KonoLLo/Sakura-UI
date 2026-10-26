@@ -4,7 +4,7 @@
     "en": "Sakura-UI",
     "cn": "樱花界面"
   },
-  "version": "1.0.4",
+  "version": "1.0.5",
   "styleFileList": [
     "dol-ui.css",
     "dol-ui-shell.css",

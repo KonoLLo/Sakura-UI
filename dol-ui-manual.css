@@ -3264,7 +3264,17 @@ html[data-dol-tone="light"] #passage-content > .dol-grp {
 
 #shop-pagination { display: flex; flex-wrap: nowrap; align-items: center; gap: 6px; margin: 0; }
 #shop-pagination .btn-pagination { flex: 0 0 auto; }
-.shop-pages { flex: 1 1 0; min-width: 0; justify-content: center; margin: 0 6px; display: flex; flex-wrap: wrap; gap: 5px; }
+
+#shop-pagination .shop-pages { display: none; }
+#shop-pagination .shop-pages-number {
+  display: inline-block;
+  flex: 1 1 0;
+  min-width: 0;
+  text-align: center;
+  color: var(--dol-ink-dim);
+  font-size: 13.5px;
+  white-space: nowrap;
+}
 #shop-pagination .page {
   width: 26px;
   height: 26px;
