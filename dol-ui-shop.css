@@ -266,8 +266,9 @@
 .clothing-shop-page .stats-ball { width: 6px; height: 6px; margin-right: 0; border-color: var(--dol-line); }
 
 
-#shop-pagination { gap: 6px; margin: 0; flex-wrap: wrap; }
-.shop-pages { margin: 0 6px; display: flex; flex-wrap: wrap; gap: 5px; }
+#shop-pagination { display: flex; flex-wrap: nowrap; align-items: center; gap: 6px; margin: 0; }
+#shop-pagination .btn-pagination { flex: 0 0 auto; }
+.shop-pages { flex: 1 1 0; min-width: 0; justify-content: center; margin: 0 6px; display: flex; flex-wrap: wrap; gap: 5px; }
 #shop-pagination .page {
   width: 26px;
   height: 26px;
