@@ -780,6 +780,8 @@ html:root #customOverlay:has(.modhub-container) .modhub-group-header span.gold {
 html:root #customOverlay:has(.modhub-container) #overlayTabs {
   background: transparent !important;
   border-bottom: 1px solid var(--dol-line) !important;
+  
+  flex-wrap: wrap !important;
 }
 html:root #customOverlay:has(.modhub-container) #overlayTabs > button.modhub-core-tab {
   background: transparent !important;

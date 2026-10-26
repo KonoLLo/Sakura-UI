@@ -134,6 +134,8 @@
   .customOverlayContainer { left: 0; width: 100%; }
   #customOverlayContent { padding: 6px 4px 14px; margin: 0 4px; }
   .settingsGrid { grid-template-columns: minmax(0, 1fr); gap: 10px; margin: 10px 2px; }
+  
+  .settingsToggleItemWide label { white-space: nowrap; }
   .tab > * { padding: 8px 11px; font-size: .84rem; }
   
   

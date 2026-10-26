@@ -1992,6 +1992,8 @@ html:root #customOverlay:has(.modhub-container) .modhub-group-header span.gold {
 html:root #customOverlay:has(.modhub-container) #overlayTabs {
   background: transparent !important;
   border-bottom: 1px solid var(--dol-line) !important;
+  
+  flex-wrap: wrap !important;
 }
 html:root #customOverlay:has(.modhub-container) #overlayTabs > button.modhub-core-tab {
   background: transparent !important;
@@ -2322,6 +2324,8 @@ html:root #customOverlay:not(:has(.modhub-container)) .customOverlayClose {
   .customOverlayContainer { left: 0; width: 100%; }
   #customOverlayContent { padding: 6px 4px 14px; margin: 0 4px; }
   .settingsGrid { grid-template-columns: minmax(0, 1fr); gap: 10px; margin: 10px 2px; }
+  
+  .settingsToggleItemWide label { white-space: nowrap; }
   .tab > * { padding: 8px 11px; font-size: .84rem; }
   
   
