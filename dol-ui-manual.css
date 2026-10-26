@@ -987,6 +987,30 @@ body:has(#cbtToggleMenu.visible) #next { bottom: var(--dol-cbtH-open); }
   body:has(#cbtToggleMenu.visible) #next { bottom: var(--dol-cbtH); visibility: hidden; }
   
   html #cbtToggleMenu.visible { max-height: 45vh; overflow-y: auto; }
+  
+  body:has(#cbtToggleMenu) #next {
+    bottom: 0;
+    left: auto;
+    right: 0;
+    width: auto;
+    height: var(--dol-cbtH);
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    z-index: 300;
+  }
+  body:has(#cbtToggleMenu) #next > a {
+    margin: 0;
+    padding: .18em .9em;
+    font-size: .92em;
+    line-height: 1.45;
+  }
 }
 
 
