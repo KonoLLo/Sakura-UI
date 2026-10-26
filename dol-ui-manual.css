@@ -2661,7 +2661,8 @@ html[data-dol-tone="light"] #passage-content > .dol-grp {
   padding: 8px 10px;
   border: 1px solid var(--dol-line-soft);
   border-radius: var(--dol-r-sm);
-  background-color: var(--dol-panel);
+  
+  background-color: var(--dol-read);
   font-size: 13.5px;
 }
 
@@ -2708,7 +2709,8 @@ html[data-dol-tone="light"] #passage-content > .dol-grp {
   padding: 10px 12px;
   border: 1px solid var(--dol-line-soft);
   border-radius: var(--dol-r);
-  background-color: var(--dol-panel);
+  
+  background-color: var(--dol-read);
 }
 #clotheson:not(:has(> :not(br))) { display: none; }
 #clotheson { margin-bottom: 10px; }
