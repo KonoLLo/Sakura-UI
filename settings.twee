@@ -15,7 +15,7 @@
 
 			<div class="settingsHeader"><span class="gold">配色</span></div>
 			<div class="settingsToggleItemWide">
-				<label><input type="radio" name="dolui-skin" data-dolui-pref="skin" value="sakura"> 樱花</label> |
+				<label><input type="radio" name="dolui-skin" data-dolui-pref="skin" value="sakura"> 樱花色</label> |
 				<label><input type="radio" name="dolui-skin" data-dolui-pref="skin" value="mist"> 莫兰迪粉蓝</label> |
 				<label><input type="radio" name="dolui-skin" data-dolui-pref="skin" value="cocoa"> 复古巧克力</label> |
 				<label><input type="radio" name="dolui-skin" data-dolui-pref="skin" value="ink"> 石墨（深色）</label>

@@ -2,7 +2,7 @@
 
 《Degrees of Lewdity》的界面皮肤（DoL mod）。只改画面，不碰游戏数据：不读存档、不写存档、不改任何数值。
 
-- 四套配色：樱花（默认）、莫兰迪粉蓝、复古巧克力、石墨（深色）
+- 四套配色：樱花色（默认）、莫兰迪粉蓝、复古巧克力、石墨（深色）
 - 正文纸色三档：柔（暖白，默认）、亮、暖（护眼）
 - 侧栏分卡、正文链接分组、战斗页重排、商店/衣柜/存读档页重排、手机端适配
 - 正文正文字体可选（随包内置「什锦黑」，不联网）
@@ -37,7 +37,7 @@
 手动装法可在控制台切换：
 
 ```js
-DolUiPrefs.set('skin', 'sakura')   // 樱花（默认）／mist／cocoa／ink
+DolUiPrefs.set('skin', 'sakura')   // 樱花色（默认）／mist／cocoa／ink
 DolUiPrefs.set('read', 'soft')     // 正文底色：soft（柔）／bright（亮）／warm（暖）
 DolUiPrefs.set('font', 'none')     // 跟随游戏字体；'a' = 什锦黑
 ```
