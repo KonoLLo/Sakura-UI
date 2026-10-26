@@ -271,7 +271,8 @@
 
 #shop-pagination .shop-pages { display: none; }
 #shop-pagination .shop-pages-number {
-  display: inline-block;
+  
+  display: inline-block !important;
   flex: 1 1 0;
   min-width: 0;
   text-align: center;
