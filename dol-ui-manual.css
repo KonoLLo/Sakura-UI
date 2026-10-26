@@ -991,10 +991,11 @@ body:has(#cbtToggleMenu.visible) #next { bottom: var(--dol-cbtH-open); }
   body:has(#cbtToggleMenu) #next {
     bottom: 0;
     left: auto;
-    right: 0;
+    
+    right: calc(var(--dol-fixedR) + var(--dol-sp-4));
     width: auto;
     height: var(--dol-cbtH);
-    padding: 0 10px;
+    padding: 0 13px;
     display: flex;
     align-items: center;
     justify-content: flex-end;
