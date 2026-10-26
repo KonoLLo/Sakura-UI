@@ -302,7 +302,7 @@
 
 
 
-	var API = { get: get, set: set, apply: apply, version: '1.0.9' };
+	var API = { get: get, set: set, apply: apply, version: '1.0.10' };
 
 	function boot() {
 

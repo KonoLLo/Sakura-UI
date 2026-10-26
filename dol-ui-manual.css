@@ -1011,6 +1011,8 @@ body:has(#cbtToggleMenu.visible) #next { bottom: var(--dol-cbtH-open); }
     font-size: .95em;
     line-height: 1.45;
     
+    min-height: 0;
+    
     border: 0;
     border-radius: 0;
     background: transparent;
