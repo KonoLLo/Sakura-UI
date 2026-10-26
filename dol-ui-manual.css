@@ -4268,8 +4268,14 @@ html:root #saves-list-container .right button.saveMenuButton { align-self: cente
   .dol-strip-row > #shopCategories { flex: 1 1 0; min-width: 0; margin: 0; }
 
   
+  
   #shopCategories,
-  .colour-options-div { touch-action: pan-y; }
+  .colour-options-div {
+    touch-action: pan-y;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    padding-bottom: 0;
+  }
   .dol-strip-nav {
     display: inline-grid;
     place-items: center;
