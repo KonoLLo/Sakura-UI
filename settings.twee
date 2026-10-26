@@ -3,7 +3,7 @@
 
 
 <<widget "dolUiModTab">>
-	<<button "玄屏界面">>
+	<<button "樱花界面">>
 		<<toggleTab>>
 		<<replace #customOverlayContent>><<dolUiPanel>><</replace>>
 	<</button>>
@@ -15,7 +15,7 @@
 
 			<div class="settingsHeader"><span class="gold">配色</span></div>
 			<div class="settingsToggleItemWide">
-				<label><input type="radio" name="dolui-skin" data-dolui-pref="skin" value="sakura"> 玫瑰灰</label> |
+				<label><input type="radio" name="dolui-skin" data-dolui-pref="skin" value="sakura"> 樱花</label> |
 				<label><input type="radio" name="dolui-skin" data-dolui-pref="skin" value="mist"> 莫兰迪粉蓝</label> |
 				<label><input type="radio" name="dolui-skin" data-dolui-pref="skin" value="cocoa"> 复古巧克力</label> |
 				<label><input type="radio" name="dolui-skin" data-dolui-pref="skin" value="ink"> 石墨（深色）</label>
@@ -56,14 +56,14 @@
 
 			<div class="settingsToggleItemWide">
 				<button type="button" data-dolui-act="reset">恢复默认</button>
-				<span class="dol-note">玄屏 · 现代界面 v<<print DolUiPrefs.version>></span>
+				<span class="dol-note">Sakura-UI · 樱花界面 v<<print DolUiPrefs.version>></span>
 			</div>
 			<div class="dol-note" data-dolui-note="storage" hidden>这台设备的浏览器不让本模组保存设置（隐私模式或站点禁用了本地存储）：改动当场生效，但下次进游戏会回到默认。</div>
 
 		</div>
 	<<else>>
 		<div class="p-2 text-align-center">
-			<h3>玄屏 · 现代界面</h3>
+			<h3>Sakura-UI · 樱花界面</h3>
 			<p>未找到 dol-ui-prefs 脚本，请确认本模组已随 ModLoader 正常加载。</p>
 		</div>
 	<</if>>
