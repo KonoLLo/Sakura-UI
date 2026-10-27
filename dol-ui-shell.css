@@ -321,6 +321,34 @@ html[data-init="loading"] #ui-bar { display: none; }
 #statmeters .rightMeter > div { height: var(--dol-capMeterH); }
 
 
+#ui-bar #psyche-fearcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+
+#ui-bar #psyche-fearcaption > div:first-child {
+  display: flex !important;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: .4em;
+  flex: 0 0 auto;
+  color: var(--dol-ink-dim);
+  white-space: nowrap;
+}
+#ui-bar #psyche-fearcaption > div:first-child > span {
+  margin-left: 0;
+  text-align: right;
+  white-space: normal;
+  min-width: 0;
+}
+#ui-bar #psyche-fearcaption .meter,
+#ui-bar #psyche-fearcaption .rightMeter { width: 100%; height: var(--dol-capMeterH); }
+#ui-bar #psyche-fearcaption .meter > div,
+#ui-bar #psyche-fearcaption .rightMeter > div { height: var(--dol-capMeterH); }
+
+
 
 
 
