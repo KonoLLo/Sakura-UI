@@ -4059,7 +4059,12 @@ html:root #saves-list-container .right button.saveMenuButton { align-self: cente
   .food_ui #altSection { width: auto; min-width: 0; height: 100%; overflow: hidden; }
 }
 
-.food_ui #mainSection { border-right: 1px solid var(--dol-line); }
+.food_ui #mainSection {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--dol-line);
+  background-color: var(--dol-read, var(--dol-panel));
+}
 .food_ui #altSection { background-color: var(--dol-panel-2); }
 
 
@@ -4099,9 +4104,11 @@ html:root #saves-list-container .right button.saveMenuButton { align-self: cente
 .food_ui #mainSection #itemList {
   display: flex;
   flex-direction: column;
+  flex-wrap: nowrap;
   gap: 0;
   height: auto;
-  flex: 1 1 auto;
+  flex: 1 1 0;
+  min-height: 0;
   padding: 8px 10px 10px;
   overflow-y: auto;
   scrollbar-width: thin;
@@ -4185,6 +4192,10 @@ html:root #saves-list-container .right button.saveMenuButton { align-self: cente
 }
 .food_ui #mainSection .item .recipe a:hover { border-color: var(--dol-accent); background-color: var(--dol-panel-3); }
 .food_ui #mainSection .item .recipe img { height: 26px; width: 26px; border: 0; }
+
+html[data-dol-tone="light"] .food_ui .item .recipe img {
+  filter: invert(.77);
+}
 .food_ui hr { border-top: 1px solid var(--dol-line-soft); margin: 8px 0; }
 
 
