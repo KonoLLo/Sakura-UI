@@ -186,7 +186,17 @@
   align-items: center;
   gap: 6px 8px;
 }
-#wardrobeList > br { flex: 100% 0 0; height: 0; margin: 0; }
+
+#wardrobeList > br { height: 0; margin: 0; }
+
+#wardrobeList > .dol-wrow {
+  flex: 0 0 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 8px;
+  min-width: 0;
+}
 
 #wardrobeList > u {
   color: var(--dol-ink);
@@ -224,6 +234,7 @@
   display: flex;
   box-sizing: border-box;
   flex: 0 1 calc(50% - 8px);
+  position: relative;   
   align-items: center;
   gap: 8px;
   min-height: 36px;
@@ -398,6 +409,43 @@
 
 
 #passage-content:has(#wardrobeLinks) .accIcon:not(.wardrobeItem *) { display: none; }
+
+
+#wardrobeList .wardrobeItem img.accIcon {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  flex: 0 0 22px;
+  width: 22px;
+  height: 22px;
+  pointer-events: none;
+}
+
+
+html[data-dol-tone="light"] #wardrobeList .wardrobeItem span.cold-resist-icon {
+  position: relative;
+  background-image: none;
+}
+html[data-dol-tone="light"] #wardrobeList .wardrobeItem span.cold-resist-icon::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1em;
+  height: 1em;
+  background-image: url("img/ui/cold-resistance.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  filter: invert(.77);
+  pointer-events: none;
+}
+
+
+html[data-dol-tone="light"] #wardrobeList .wardrobeItem span::before {
+  color: var(--dol-ink-faint);
+}
 
 
 #passage-content:has(#wardrobeLinks) #wardrobeList > .dol-wbreak {

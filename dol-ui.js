@@ -1403,6 +1403,47 @@
 		}
 	}
 
+
+
+
+
+
+
+
+
+
+	function wardrobeRowWrap() {
+		var list = DOC.getElementById('wardrobeList');
+		if (!list) return;
+		var kids = [];
+		for (var n = list.firstChild; n; n = n.nextSibling) kids.push(n);
+		var run = [];
+		var flush = function () {
+			if (!run.length) return;
+			var visible = false;
+			for (var i = 0; i < run.length; i++) {
+				var x = run[i];
+				if (x.nodeType === 1) { visible = true; break; }
+				if (x.nodeType === 3 && /\S/.test(x.nodeValue || '')) { visible = true; break; }
+			}
+			if (!visible) { run = []; return; }
+			var box = DOC.createElement('div');
+			box.className = 'dol-wrow';
+			list.insertBefore(box, run[0]);
+			for (var j = 0; j < run.length; j++) box.appendChild(run[j]);
+			run = [];
+		};
+		for (var k = 0; k < kids.length; k++) {
+			var el = kids[k];
+			if (el.nodeType === 1 && (el.classList.contains('wardrobeItem') || el.classList.contains('dol-wrow'))) {
+				flush();
+				continue;
+			}
+			run.push(el);
+		}
+		flush();
+	}
+
 	function wardrobeMetaWrap() {
 		var list = DOC.getElementById('wardrobeList');
 		if (!list) return;
@@ -1514,6 +1555,7 @@
 			try { kitchenAltToggle(); } catch (e) { console.error('[dol-ui] 厨房收起按钮失败（不影响游戏）', e); }
 			try { wardrobeToolbar(); } catch (e) { console.error('[dol-ui] 衣柜动作条失败（不影响游戏）', e); }
 			try { wardrobeSortFold(); } catch (e) { console.error('[dol-ui] 衣柜排序折叠失败（不影响游戏）', e); }
+			try { wardrobeRowWrap(); } catch (e) { console.error('[dol-ui] 衣柜整行分组失败（不影响游戏）', e); }
 			try { wardrobeMetaWrap(); } catch (e) { console.error('[dol-ui] 衣柜元信息分组失败（不影响游戏）', e); }
 			try { wardrobeTabsNav(); } catch (e) { console.error('[dol-ui] 衣柜页签翻页钮失败（不影响游戏）', e); }
 		}

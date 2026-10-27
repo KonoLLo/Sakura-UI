@@ -167,3 +167,20 @@ html[data-dol-tone="light"] #passage-content > .dol-grp {
 
 
 
+
+
+html[data-dol-tone="light"] img[src*="/ui/clothes/"]:not([src*="reveal"]),
+html[data-dol-tone="light"] img[src$="/ui/sidebar-day.png"],
+html[data-dol-tone="light"] img[src$="/ui/locket-empty.png"],
+html[data-dol-tone="light"] img[src$="/ui/filter.png"],
+html[data-dol-tone="light"] img[src$="/ui/options.png"],
+html[data-dol-tone="light"] img[src$="/ui/help.png"],
+html[data-dol-tone="light"] img[src$="/ui/lock.png"],
+html[data-dol-tone="light"] img[src$="/ui/random.png"],
+html[data-dol-tone="light"] img[src$="/ui/custom.png"],
+html[data-dol-tone="light"] img[src$="/ui/delete.png"],
+html[data-dol-tone="light"] img[src$="/ui/save.png"],
+html[data-dol-tone="light"] img[src$="/ui/import-preset-colour.png"],
+html[data-dol-tone="light"] img[src$="/ui/export-preset-colour.png"] {
+  filter: invert(.77);
+}
